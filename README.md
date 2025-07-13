@@ -6,6 +6,8 @@ Personal portfolio, compatible for both mobile/desktop, developed in HTML5, CSS3
 
 ![Portfolio Screenshot](Screenshot.png)
 
+**Screenshot of portfolio**
+
 ## Technologies used
 
 - frontend : html5, css3, javascript (es6+)
