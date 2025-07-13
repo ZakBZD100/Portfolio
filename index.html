@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Portfolio de Zakariae El Bouzidi - Élève-ingénieur en Informatique & Réseaux. Développement fullstack, systèmes et gestion de données.">
+    <meta name="keywords" content="portfolio, développeur, informatique, réseaux, fullstack, Flutter, Django, FastAPI">
+    <meta name="author" content="Zakariae El Bouzidi">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Zakariae El Bouzidi - Portfolio</title>
+    <link rel="icon" type="image/png" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-32.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--emailjs sdk-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!--preload critical resources-->
+    <link rel="preload" href="CVPHOTO.jpg" as="image">
+    <link rel="preload" href="portfolio.png" as="image">
+    <!--background programming elements-->
+    <div class="bg-elements">
+        <div class="code-rain"></div>
+        <div class="circuit-lines"></div>
+        <div class="binary-particles"></div>
+    </div>
+    
+    <!--header-->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="brand-text">Zakariae El Bouzidi</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-section="home" data-fr="Accueil" data-en="Home">Accueil</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects" data-fr="Projets" data-en="Projects">Projets</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills" data-fr="Compétences" data-en="Skills">Compétences</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience" data-fr="Expériences" data-en="Experience">Expériences</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <button class="language-toggle" data-lang="fr">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!--main content-->
+    <main class="main">
+        <!--home section-->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-fr="Zakariae El Bouzidi" data-en="Zakariae El Bouzidi">Zakariae El Bouzidi</h1>
+                        <p class="hero-subtitle" data-fr="Élève-ingénieur en Informatique & Réseaux" data-en="Computer Science & Networks Engineering Student">Élève-ingénieur en Informatique & Réseaux</p>
+                        <p class="hero-description" data-fr="Passionné par le développement logiciel fullstack, les systèmes et la gestion des données. J'aime transformer mes connaissances en solutions concrètes." data-en="Passionate about fullstack development, systems, and data handling. Turning knowledge into concrete solutions.">Passionné par le développement logiciel fullstack, les systèmes et la gestion des données. J'aime transformer mes connaissances en solutions concrètes.</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary" data-fr="Voir mes projets" data-en="View my projects">
+                                <img src="Emoticone/icons8-project-50.png" alt="Projects" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Voir mes projets
+                            </a>
+                            <a href="#contact" class="btn btn-secondary" data-fr="Me contacter" data-en="Contact me">
+                                <img src="Emoticone/icons8-phone-50.png" alt="Contact" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Me contacter
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="profile-photo-container">
+                            <img src="CVPHOTO.jpg" alt="Zakariae El Bouzidi" class="profile-photo">
+                            <div class="matrix-particles">
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                            </div>
+                            <div class="whoami-popup">whoami</div>
+                            <div class="whoami-info">Zakariae El Bouzidi
+Élève-ingénieur en Informatique & Réseaux
+Passionné par le développement logiciel fullstack, les systèmes et la gestion des données. J'aime transformer mes connaissances en solutions concrètes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--projects section-->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Cloud Monitoring Dashboard</h3>
+                            <p class="project-description" data-fr="Dashboard temps réel avec FastAPI, WebSocket et Docker. Simulation de métriques système et analyse automatisée via Ollama AI." data-en="Real-time dashboard with FastAPI, WebSocket and Docker. System metrics simulation and automated analysis via Ollama AI.">Dashboard temps réel avec FastAPI, WebSocket et Docker. Simulation de métriques système et analyse automatisée via Ollama AI.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">WebSocket</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">Ollama AI</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Cloud-Monitoring-Dashboard" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">POPPStars Attendance App</h3>
+                            <p class="project-description" data-fr="Application Flutter multi-rôle pour la gestion de présence. Création de séances et pointage via SFTP/SQL." data-en="Multi-role Flutter app for attendance management. Session creation and presence logging via SFTP/SQL.">Application Flutter multi-rôle pour la gestion de présence. Création de séances et pointage via SFTP/SQL.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">SFTP</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Dart</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/POPPStars-Attendance-App" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Voir sur GitHub
+                            </a>
+                            <a href="app-release.apk" download class="btn btn-primary" data-fr="Télécharger APK" data-en="Download APK">
+                                <img src="Emoticone/icons8-phone-50 (1).png" alt="APK" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Télécharger APK
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Django Chat App</h3>
+                            <p class="project-description" data-fr="Application de messagerie en temps réel avec backend Django et frontend HTML/CSS/JS." data-en="Real-time messaging app with Django backend and HTML/CSS/JS frontend.">Application de messagerie en temps réel avec backend Django et frontend HTML/CSS/JS.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Django-Chat-App" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Voir sur GitHub
+                            </a>
+                            <a href="https://zakbzd.pythonanywhere.com/" target="_blank" class="btn btn-primary" data-fr="Démo Live" data-en="Live Demo">
+                                <img src="Emoticone/icons8-website-50.png" alt="Demo" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Démo Live
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Quaternion 3D Rotation Study</h3>
+                            <p class="project-description" data-fr="Étude comparative des méthodes de rotation 3D : rotations matricielles classiques vs rotations par quaternions. Travail d'Initiative Personnelle Encadré (TIPE)." data-en="Comparative study of 3D rotation methods: classical matrix rotations vs quaternion-based rotations. Personal Initiative Supervised Work (TIPE).">Étude comparative des méthodes de rotation 3D : rotations matricielles classiques vs rotations par quaternions. Travail d'Initiative Personnelle Encadré (TIPE).</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">Matplotlib</span>
+                                <span class="tech-tag">Mathématiques</span>
+                                <span class="tech-tag">3D Graphics</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Quaternion-3d-Rotation" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Voir sur GitHub
+                            </a>
+                            <a href="Quaternion_TIPE_2024.pdf" download class="btn btn-primary" data-fr="Télécharger PDF" data-en="Download PDF">
+                                <img src="Emoticone/icons8-pdf-50.png" alt="PDF" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                Télécharger PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--skills section-->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Frameworks & Outils" data-en="Frameworks & Tools">Frameworks & Outils</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Flutter</span>
+                            <span class="skill-item">Django</span>
+                            <span class="skill-item">FastAPI</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Chart.js</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Langages de Programmation" data-en="Programming Languages">Langages de Programmation</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">C</span>
+                            <span class="skill-item">OCaml/F#</span>
+                            <span class="skill-item">SQL</span>
+                            <span class="skill-item">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Systèmes d'Exploitation" data-en="Operating Systems">Systèmes d'Exploitation</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Windows</span>
+                            <span class="skill-item">Linux (Ubuntu)</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Soft Skills" data-en="Soft Skills">Soft Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Résolution de problèmes</span>
+                            <span class="skill-item">Autonomie</span>
+                            <span class="skill-item">Apprentissage rapide</span>
+                            <span class="skill-item">Esprit critique</span>
+                            <span class="skill-item">Rigueur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--experience section-->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Expériences" data-en="Experience">Expériences</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Juillet 2025" data-en="July 2025">Juillet 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Stage Medi1TV</h3>
+                            <p class="timeline-description" data-fr="Immersion dans un environnement IT. Développement de systèmes, automatisation, support technique." data-en="Immersion in IT environment. Systems development, automation, technical support.">Immersion dans un environnement IT. Développement de systèmes, automatisation, support technique.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Juillet 2025" data-en="July 2025">Juillet 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Cloud Monitoring Dashboard</h3>
+                            <p class="timeline-description" data-fr="Dashboard temps réel avec FastAPI, WebSocket, Docker. Simulation de métriques système, analyse automatisée via Ollama AI." data-en="Real-time dashboard with FastAPI, WebSocket, Docker. System metrics simulation, automated analysis via Ollama AI.">Dashboard temps réel avec FastAPI, WebSocket, Docker. Simulation de métriques système, analyse automatisée via Ollama AI.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Juin 2025" data-en="June 2025">Juin 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">POPPStars Attendance App</h3>
+                            <p class="timeline-description" data-fr="Application Flutter multi-rôle pour la gestion de présence. Création de séances, pointage via SFTP/SQL." data-en="Multi-role Flutter app for attendance management. Session creation, presence logging via SFTP/SQL.">Application Flutter multi-rôle pour la gestion de présence. Création de séances, pointage via SFTP/SQL.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Janvier 2025" data-en="January 2025">Janvier 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Django Chat App</h3>
+                            <p class="timeline-description" data-fr="Backend Django, frontend HTML/CSS/JS. Messagerie en temps réel." data-en="Django backend, HTML/CSS/JS frontend. Real-time messaging.">Backend Django, frontend HTML/CSS/JS. Messagerie en temps réel.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="2023-2024" data-en="2023-2024">2023-2024</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Étude des Rotations 3D</h3>
+                            <p class="timeline-description" data-fr="Simulation en Python des rotations 3D. Présentation orale et rapport écrit." data-en="Python simulation of 3D rotations. Oral presentation and written report.">Simulation en Python des rotations 3D. Présentation orale et rapport écrit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--contact section-->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Contact" data-en="Contact">Contact</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-gmail-48.png" alt="Email" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="Email" data-en="Email">Email</h4>
+                                <a href="mailto:zak.elbouzidi@gmail.com">zak.elbouzidi@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-phone-50.png" alt="Phone" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="Téléphone" data-en="Phone">Téléphone</h4>
+                                <a href="tel:+33602492152">+33 6 02 49 21 52</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div class="contact-details">
+                                <h4 data-fr="Localisation" data-en="Location">Localisation</h4>
+                                <span>Brunstatt, France</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-github-50.png" alt="GitHub" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="GitHub" data-en="GitHub">GitHub</h4>
+                                <a href="https://github.com/ZakBZD100" target="_blank">github.com/ZakBZD100</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-linkedin-50.png" alt="LinkedIn" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="LinkedIn" data-en="LinkedIn">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/zakariae-el-bouzidi" target="_blank">linkedin.com/in/zakariae-el-bouzidi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-fr="Nom" data-en="Name">Nom</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-fr="Email" data-en="Email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-fr="Message" data-en="Message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-fr="Envoyer" data-en="Send">Envoyer</button>
+                        </form>
+                        <!--status notification-->
+                        <div id="formStatus" class="form-status" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Zakariae El Bouzidi. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
