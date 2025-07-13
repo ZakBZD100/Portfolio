@@ -12,22 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //mobile menu management
     function initMobileMenu() {
         const nav = document.querySelector('.nav');
+        const navToggle = document.querySelector('.nav-toggle');
         
-        //create toggle button if it doesn't exist
-        if (!document.querySelector('.nav-toggle')) {
-            const navToggle = document.createElement('button');
-            navToggle.className = 'nav-toggle';
-            navToggle.innerHTML = '☰';
-            navToggle.setAttribute('aria-label', 'Menu de navigation');
-            
-            //insert button in nav
-            const navBrand = document.querySelector('.nav-brand');
-            if (navBrand && navBrand.nextSibling) {
-                nav.insertBefore(navToggle, navBrand.nextSibling);
-            } else {
-                nav.appendChild(navToggle);
-            }
-            
+        if (navToggle) {
             //toggle management
             navToggle.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
