@@ -41,7 +41,7 @@ portfolio/
 
 ## Live demo
 
-url : https://zakbzd100.github.io/portfolio
+url : https://zakbzd100.github.io/Portfolio
 
 ## Author
 
