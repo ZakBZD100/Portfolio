@@ -1920,8 +1920,11 @@ body::after {
 }
 
 @media (max-width: 768px) {
-    .header, .nav {
+    .header, .nav, .nav-menu {
         display: none !important;
+    }
+    .main {
+        padding-top: 0 !important;
     }
     .mobile-nav {
         display: flex;
