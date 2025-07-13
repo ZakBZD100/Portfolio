@@ -69,8 +69,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     element.textContent = newText;
                 } else {
                     // Si l'élément a des enfants, on ne touche pas à la structure
-                    // mais on peut cibler un span ou un noeud texte spécifique si besoin
                 }
+            }
+        });
+        // Traduction des boutons mobile-nav
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            const textSpan = link.querySelector('.mobile-nav-text');
+            if (textSpan && link.hasAttribute('data-fr') && link.hasAttribute('data-en')) {
+                textSpan.textContent = currentLang === 'fr' ? link.getAttribute('data-fr') : link.getAttribute('data-en');
             }
         });
         //sync mobile button
@@ -95,6 +101,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         // Si l'élément a des enfants, on ne touche pas à la structure
                     }
+                }
+            });
+            // Traduction des boutons mobile-nav
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                const textSpan = link.querySelector('.mobile-nav-text');
+                if (textSpan && link.hasAttribute('data-fr') && link.hasAttribute('data-en')) {
+                    textSpan.textContent = currentLang === 'fr' ? link.getAttribute('data-fr') : link.getAttribute('data-en');
                 }
             });
             //sync desktop button
