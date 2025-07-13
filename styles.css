@@ -325,6 +325,10 @@ body::after {
     text-shadow: 0 0 30px rgba(76, 175, 80, 0.8);
     font-family: 'Courier New', monospace;
     position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100vw;
 }
 
 .hero-title::before {
