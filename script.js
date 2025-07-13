@@ -417,11 +417,11 @@ Computer Science & Networks Engineering Student</div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="ls -la" data-delay="2000"></span></div>
                 <div class="terminal-output" style="display: none;">
-                    drwxr-xr-x  home/         4096  Jan 2025<br>
-                    drwxr-xr-x  projects/     4096  Jan 2025<br>
-                    drwxr-xr-x  skills/       4096  Jan 2025<br>
-                    drwxr-xr-x  experience/   4096  Jan 2025<br>
-                    drwxr-xr-x  contact/      4096  Jan 2025
+                    drwxr-xr-x  home/         4096  Jul 2025<br>
+                    drwxr-xr-x  projects/     4096  Jul 2025<br>
+                    drwxr-xr-x  skills/       4096  Jul 2025<br>
+                    drwxr-xr-x  experience/   4096  Jul 2025<br>
+                    drwxr-xr-x  contact/      4096  Jul 2025
                 </div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="cat skills.txt" data-delay="4000"></span></div>
