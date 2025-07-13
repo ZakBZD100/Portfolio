@@ -1913,3 +1913,55 @@ body::after {
     z-index: 100;
   }
 } 
+
+/* mobile nav bar */
+.mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header, .nav {
+        display: none !important;
+    }
+    .mobile-nav {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 60px;
+        background: rgba(10, 10, 10, 0.98);
+        border-top: 1px solid rgba(76, 175, 80, 0.2);
+        box-shadow: 0 -2px 16px rgba(0,0,0,0.25);
+        z-index: 2000;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 8px;
+    }
+    .mobile-nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #4CAF50;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-family: 'Courier New', monospace;
+        flex: 1;
+        height: 100%;
+        transition: color 0.2s;
+    }
+    .mobile-nav-link:active, .mobile-nav-link.active {
+        color: #fff;
+        background: rgba(76, 175, 80, 0.12);
+        border-radius: 8px 8px 0 0;
+    }
+    .mobile-nav-text {
+        font-size: 0.7rem;
+        margin-top: 2px;
+        letter-spacing: 0.5px;
+    }
+    body {
+        padding-bottom: 60px;
+    }
+}

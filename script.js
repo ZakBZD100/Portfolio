@@ -2,47 +2,63 @@
 document.addEventListener('DOMContentLoaded', function() {
     //navigation elements
     const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const sections = document.querySelectorAll('.section');
     const languageToggle = document.querySelector('.language-toggle');
     
     //language state
     let currentLang = 'fr';
     
-    //initialize EmailJS with your public key
-    emailjs.init("0WBHJeDymJUQ_QPXn");
-    
-    //navigation between sections
+    //navigation between sections (desktop)
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const targetSection = this.getAttribute('data-section');
-            
             //hide all sections
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            
             //show target section
             const targetElement = document.getElementById(targetSection);
             if (targetElement) {
                 targetElement.classList.add('active');
             }
-            
             //update active navigation
-            navLinks.forEach(navLink => {
-                navLink.classList.remove('active');
-            });
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
             this.classList.add('active');
+            //update mobile nav
+            mobileNavLinks.forEach(mobileLink => mobileLink.classList.remove('active'));
+            document.querySelectorAll('.mobile-nav-link[data-section="'+targetSection+'"]').forEach(mobileLink => mobileLink.classList.add('active'));
         });
     });
-    
+    //navigation between sections (mobile)
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = this.getAttribute('data-section');
+            //hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            //show target section
+            const targetElement = document.getElementById(targetSection);
+            if (targetElement) {
+                targetElement.classList.add('active');
+            }
+            //update active navigation
+            mobileNavLinks.forEach(mobileLink => mobileLink.classList.remove('active'));
+            this.classList.add('active');
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            document.querySelectorAll('.nav-link[data-section="'+targetSection+'"]').forEach(navLink => navLink.classList.add('active'));
+        });
+    });
+    //initialize EmailJS with your public key
+    emailjs.init("0WBHJeDymJUQ_QPXn");
     //language change
     languageToggle.addEventListener('click', function() {
         currentLang = currentLang === 'fr' ? 'en' : 'fr';
         this.textContent = currentLang.toUpperCase();
         this.setAttribute('data-lang', currentLang);
-        
         //update all texts with data-fr and data-en attributes
         const elementsWithLang = document.querySelectorAll('[data-fr][data-en]');
         elementsWithLang.forEach(element => {
