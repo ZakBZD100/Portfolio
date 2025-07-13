@@ -2135,7 +2135,7 @@ body::after {
         text-overflow: unset;
         white-space: normal;
         width: 100%;
-        font-size: 0.55em;
+        font-size: 0.5em;
         line-height: 1.0;
         margin-top: 3px;
         text-align: center;
@@ -2143,6 +2143,7 @@ body::after {
         min-height: 2.4em;
         max-height: 2.4em;
         padding: 0 1px;
+        word-break: break-word;
     }
 }
 
