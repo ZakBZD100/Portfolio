@@ -13,27 +13,39 @@ document.addEventListener('DOMContentLoaded', function() {
     function initMobileMenu() {
         const nav = document.querySelector('.nav');
         const navToggle = document.querySelector('.nav-toggle');
-        
-        if (navToggle) {
-            //toggle management
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                this.innerHTML = navMenu.classList.contains('active') ? '✕' : '☰';
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', function(e) {
+                if (isMobile()) {
+                    navMenu.classList.toggle('active');
+                    e.stopPropagation();
+                }
             });
-            
-            //close menu when clicking on a link
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    navToggle.innerHTML = '☰';
+                    if (isMobile()) {
+                        navMenu.classList.remove('active');
+                    }
                 });
             });
-            
-            //close menu when clicking outside
+            // Fermer le menu si on clique ailleurs
             document.addEventListener('click', function(e) {
-                if (!nav.contains(e.target) && navMenu.classList.contains('active')) {
+                if (isMobile() && navMenu.classList.contains('active')) {
+                    if (!nav.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                    }
+                }
+            });
+            // Fermer le menu si on resize en desktop
+            window.addEventListener('resize', function() {
+                if (!isMobile()) {
                     navMenu.classList.remove('active');
-                    navToggle.innerHTML = '☰';
                 }
             });
         }
