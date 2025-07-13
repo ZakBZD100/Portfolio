@@ -65,7 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsWithLang.forEach(element => {
             const newText = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-en');
             if (newText) {
-                element.textContent = newText;
+                if (element.children.length === 0) {
+                    element.textContent = newText;
+                } else {
+                    // Si l'élément a des enfants, on ne touche pas à la structure
+                    // mais on peut cibler un span ou un noeud texte spécifique si besoin
+                }
             }
         });
         //sync mobile button
@@ -85,7 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
             elementsWithLang.forEach(element => {
                 const newText = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-en');
                 if (newText) {
-                    element.textContent = newText;
+                    if (element.children.length === 0) {
+                        element.textContent = newText;
+                    } else {
+                        // Si l'élément a des enfants, on ne touche pas à la structure
+                    }
                 }
             });
             //sync desktop button
