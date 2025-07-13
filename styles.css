@@ -2149,3 +2149,52 @@ body::after {
         display: block;
     }
 }
+
+.nav-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 7px;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 6px #4CAF50) brightness(1.2) saturate(1.5);
+    transition: filter 0.2s;
+}
+
+.nav-link, .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-link .nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 0;
+    margin-bottom: 2px;
+}
+
+.mobile-nav-text, .nav-text {
+    display: block;
+    font-size: 0.98em;
+    color: #4CAF50;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+}
+
+@media (max-width: 768px) {
+    .nav-icon {
+        width: 22px;
+        height: 22px;
+        margin-right: 0;
+        margin-bottom: 2px;
+    }
+    .mobile-nav-link {
+        flex-direction: column;
+        padding: 0 2px;
+    }
+    .mobile-nav-text {
+        font-size: 0.93em;
+        margin-top: 1px;
+    }
+}

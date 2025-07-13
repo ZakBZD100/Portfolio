@@ -67,16 +67,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (newText) {
                 if (element.children.length === 0) {
                     element.textContent = newText;
-                } else {
-                    // Si l'élément a des enfants, on ne touche pas à la structure
                 }
             }
         });
         // Traduction des boutons mobile-nav
-        document.querySelectorAll('.mobile-nav-link').forEach(link => {
-            const textSpan = link.querySelector('.mobile-nav-text');
-            if (textSpan && link.hasAttribute('data-fr') && link.hasAttribute('data-en')) {
-                textSpan.textContent = currentLang === 'fr' ? link.getAttribute('data-fr') : link.getAttribute('data-en');
+        document.querySelectorAll('.mobile-nav-link .mobile-nav-text').forEach(textSpan => {
+            const parent = textSpan.closest('.mobile-nav-link');
+            if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
+                textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
+            }
+        });
+        // Traduction des boutons nav desktop
+        document.querySelectorAll('.nav-link .nav-text').forEach(textSpan => {
+            const parent = textSpan.closest('.nav-link');
+            if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
+                textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
             }
         });
         //sync mobile button
@@ -98,16 +103,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (newText) {
                     if (element.children.length === 0) {
                         element.textContent = newText;
-                    } else {
-                        // Si l'élément a des enfants, on ne touche pas à la structure
                     }
                 }
             });
             // Traduction des boutons mobile-nav
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                const textSpan = link.querySelector('.mobile-nav-text');
-                if (textSpan && link.hasAttribute('data-fr') && link.hasAttribute('data-en')) {
-                    textSpan.textContent = currentLang === 'fr' ? link.getAttribute('data-fr') : link.getAttribute('data-en');
+            document.querySelectorAll('.mobile-nav-link .mobile-nav-text').forEach(textSpan => {
+                const parent = textSpan.closest('.mobile-nav-link');
+                if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
+                    textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
+                }
+            });
+            // Traduction des boutons nav desktop
+            document.querySelectorAll('.nav-link .nav-text').forEach(textSpan => {
+                const parent = textSpan.closest('.nav-link');
+                if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
+                    textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
                 }
             });
             //sync desktop button
