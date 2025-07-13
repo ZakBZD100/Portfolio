@@ -2139,3 +2139,13 @@ body::after {
         max-width: 100vw;
     }
 }
+
+@media (max-width: 768px) {
+    .mobile-nav-link span:first-child {
+        color: #4CAF50;
+        filter: drop-shadow(0 0 4px #4CAF50);
+        font-size: 1.3em;
+        line-height: 1;
+        display: block;
+    }
+}
