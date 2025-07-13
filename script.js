@@ -426,11 +426,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="terminal-line">$ <span class="typing-text" data-text="cat skills.txt" data-delay="4000"></span></div>
                 <div class="terminal-output" style="display: none;">
                     === TECHNOLOGIES & TOOLS ===<br>
-                    [████████████████████] Python Ecosystem (70%)<br>
-                    [████████████████████] Mobile Development (70%)<br>
-                    [████████████████████] Web Technologies (70%)<br>
-                    [████████████████████] Database Systems (70%)<br>
-                    [████████████████████] Problem Solving
+                    [██████████████████░░░░] Python Ecosystem (70%)<br>
+                    [████████████████████░░] Mobile Development (80%)<br>
+                    [███████████████████░░░] Web Technologies (75%)<br>
+                    [████████████████████░░] Database Systems (80%)<br>
+                    [████████████████████] Problem Solving (100%)
                 </div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="echo 'Welcome to my portfolio'" data-delay="6000"></span></div>
