@@ -412,8 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="terminal-content">
                 <div class="terminal-line">$ <span class="typing-text" data-text="whoami"></span></div>
-                <div class="terminal-output" style="display: none;">Zakariae El Bouzidi
-Computer Science & Networks Engineering Student</div>
+                <div class="terminal-output" style="display: none;">Zakariae El Bouzidi - Computer Science & Networks Engineering Student</div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="ls -la" data-delay="2000"></span></div>
                 <div class="terminal-output" style="display: none;">
