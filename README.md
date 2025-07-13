@@ -1,17 +1,17 @@
-# portfolio - zakariae el bouzidi
+# Portfolio - Zakariae El Bouzidi
 
-## about
+## About
 
-personal portfolio with futuristic matrix design, developed in html5, css3 and vanilla javascript. bilingual french/english interface with smooth animations and modern dark theme.
+Personal portfolio, developed in HTML5, CSS3 and vanilla Javascript. bilingual french/english interface with smooth animations and modern dark theme.
 
-## technologies used
+## Technologies used
 
 - frontend : html5, css3, javascript (es6+)
 - design : matrix theme with green colors and animations
 - responsive : mobile-first design
 - performance : optimized animations, fast loading
 
-## features
+## Features
 
 - bilingual interface : french/english with toggle
 - responsive design : optimized mobile, tablet, desktop
@@ -19,7 +19,7 @@ personal portfolio with futuristic matrix design, developed in html5, css3 and v
 - contact form : emailjs integration
 - direct links : github, linkedin, apk/pdf downloads
 
-## sections
+## Sections
 
 - home : presentation with animated profile photo
 - projects : 4 projects with github links and demos
@@ -27,30 +27,30 @@ personal portfolio with futuristic matrix design, developed in html5, css3 and v
 - experience : chronological timeline
 - contact : form and contact information
 
-## project structure
+## Project structure
 
 ```
 portfolio/
-├── index.html # main page
-├── styles.css # css styles with matrix theme
-├── script.js # javascript for animations and interactions
-├── Emoticone/ # custom icons
-├── CVPHOTO.jpg # profile photo
-└── README.md # documentation
+├── index.html #main page
+├── styles.css #css styles with matrix theme
+├── script.js #javascript for animations and interactions
+├── Emoticone/ #custom icons
+├── CVPHOTO.jpg #profile photo
+└── README.md #documentation
 ```
 
-## live demo
+## Live demo
 
 url : https://zakbzd100.github.io/portfolio
 
-## developer
+## Author
 
 zakariae el bouzidi - full stack developer  
 - email : zak.elbouzidi@gmail.com  
 - linkedin : https://linkedin.com/in/zakariae-el-bouzidi  
 - github : https://github.com/ZakBZD100  
 
-## license
+## License
 
 this project is under mit license. free to use and modify.
 
