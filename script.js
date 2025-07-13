@@ -65,7 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsWithLang.forEach(element => {
             const newText = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-en');
             if (newText) {
-                if (element.children.length === 0) {
+                //check if element has span children with data attributes
+                const spanChild = element.querySelector('span[data-fr][data-en]');
+                if (spanChild) {
+                    //update the span child
+                    const spanText = currentLang === 'fr' ? spanChild.getAttribute('data-fr') : spanChild.getAttribute('data-en');
+                    if (spanText) {
+                        spanChild.textContent = spanText;
+                    }
+                } else if (element.children.length === 0) {
+                    //direct text element
                     element.textContent = newText;
                 }
             }
@@ -101,7 +110,16 @@ document.addEventListener('DOMContentLoaded', function() {
             elementsWithLang.forEach(element => {
                 const newText = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-en');
                 if (newText) {
-                    if (element.children.length === 0) {
+                    //check if element has span children with data attributes
+                    const spanChild = element.querySelector('span[data-fr][data-en]');
+                    if (spanChild) {
+                        //update the span child
+                        const spanText = currentLang === 'fr' ? spanChild.getAttribute('data-fr') : spanChild.getAttribute('data-en');
+                        if (spanText) {
+                            spanChild.textContent = spanText;
+                        }
+                    } else if (element.children.length === 0) {
+                        //direct text element
                         element.textContent = newText;
                     }
                 }
