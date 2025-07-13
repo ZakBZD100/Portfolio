@@ -1,16 +1,17 @@
-//navigation and language switching
+//navigationandlanguageswitching
 document.addEventListener('DOMContentLoaded', function() {
-    //navigation elements
+    //navigationelements
     const navLinks = document.querySelectorAll('.nav-link');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const sections = document.querySelectorAll('.section');
     const languageToggle = document.querySelector('.language-toggle');
     const mobileLangToggle = document.querySelector('.mobile-lang-toggle');
     
-    //language state
+    //languagestate
     let currentLang = 'fr';
+    let isInitialLoad = true;
     
-    //navigation between sections (desktop)
+    //navigationbetweensectionsdesktop
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -60,6 +61,15 @@ document.addEventListener('DOMContentLoaded', function() {
         currentLang = currentLang === 'fr' ? 'en' : 'fr';
         this.textContent = currentLang.toUpperCase();
         this.setAttribute('data-lang', currentLang);
+        
+        //Prevent typing effect on language change
+        isInitialLoad = false;
+        
+        //Stop any ongoing typing effect
+        if (window.stopTyping) {
+            window.stopTyping();
+        }
+        
         //update all texts with data-fr and data-en attributes
         const elementsWithLang = document.querySelectorAll('[data-fr][data-en]');
         elementsWithLang.forEach(element => {
@@ -79,14 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        // Traduction des boutons mobile-nav
+        //Traduction des boutons mobile-nav
         document.querySelectorAll('.mobile-nav-link .mobile-nav-text').forEach(textSpan => {
             const parent = textSpan.closest('.mobile-nav-link');
             if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
                 textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
             }
         });
-        // Traduction des boutons nav desktop
+        //Traduction des boutons nav desktop
         document.querySelectorAll('.nav-link .nav-text').forEach(textSpan => {
             const parent = textSpan.closest('.nav-link');
             if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
@@ -105,6 +115,15 @@ document.addEventListener('DOMContentLoaded', function() {
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
             this.textContent = currentLang.toUpperCase();
             this.setAttribute('data-lang', currentLang);
+            
+            //Prevent typing effect on language change
+            isInitialLoad = false;
+            
+            //Stop any ongoing typing effect
+            if (window.stopTyping) {
+                window.stopTyping();
+            }
+            
             //update all texts with data-fr and data-en attributes
             const elementsWithLang = document.querySelectorAll('[data-fr][data-en]');
             elementsWithLang.forEach(element => {
@@ -124,14 +143,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-            // Traduction des boutons mobile-nav
+            //Traduction des boutons mobile-nav
             document.querySelectorAll('.mobile-nav-link .mobile-nav-text').forEach(textSpan => {
                 const parent = textSpan.closest('.mobile-nav-link');
                 if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
                     textSpan.textContent = currentLang === 'fr' ? parent.getAttribute('data-fr') : parent.getAttribute('data-en');
                 }
             });
-            // Traduction des boutons nav desktop
+            //Traduction des boutons nav desktop
             document.querySelectorAll('.nav-link .nav-text').forEach(textSpan => {
                 const parent = textSpan.closest('.nav-link');
                 if (parent && parent.hasAttribute('data-fr') && parent.hasAttribute('data-en')) {
@@ -298,7 +317,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const profilePhoto = document.querySelector('.profile-photo');
     const photoContainer = document.querySelector('.profile-photo-container');
     
+    console.log('Profile photo found:', profilePhoto); //Debug
+    console.log('Photo container found:', photoContainer); //Debug
+    
     if (profilePhoto && photoContainer) {
+        console.log('Adding click event to photo'); //Debug
         let glowInterval;
         
         profilePhoto.addEventListener('mouseenter', function() {
@@ -306,24 +329,24 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.animation = 'photoGlow 2s ease-in-out infinite';
             
             //matrix scan animation
-            const scanLine = document.createElement('div');
-            scanLine.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: linear-gradient(90deg, transparent, #00ff41, transparent);
-                z-index: 10;
-                animation: matrixScan 1.5s ease-in-out;
-            `;
-            photoContainer.appendChild(scanLine);
+            //const scanLine = document.createElement('div');
+            //scanLine.style.cssText = `
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     right: 0;
+            //     height: 2px;
+            //     background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            //     z-index: 10;
+            //     animation: matrixScan 1.5s ease-in-out;
+            // `;
+            //photoContainer.appendChild(scanLine);
             
-            setTimeout(() => {
-                if (scanLine.parentNode) {
-                    scanLine.parentNode.removeChild(scanLine);
-                }
-            }, 1500);
+            //setTimeout(() => {
+            //     if (scanLine.parentNode) {
+            //         scanLine.parentNode.removeChild(scanLine);
+            //     }
+            // }, 1500);
         });
         
         profilePhoto.addEventListener('mouseleave', function() {
@@ -332,37 +355,209 @@ document.addEventListener('DOMContentLoaded', function() {
         
         //scan animation on click
         profilePhoto.addEventListener('click', function() {
+            console.log('Photo clicked!'); //Debug
+            console.log('Click event triggered!'); //Debug supplémentaire
+            
             //complete scan effect
             this.style.animation = 'borderRotate 3s linear';
             
             //create multiple scan effect
             for (let i = 0; i < 3; i++) {
                 setTimeout(() => {
-                    const scanLine = document.createElement('div');
-                    scanLine.style.cssText = `
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        height: 1px;
-                        background: linear-gradient(90deg, transparent, #00ff88, transparent);
-                        z-index: 10;
-                        animation: matrixScan 2s ease-in-out;
-                    `;
-                    photoContainer.appendChild(scanLine);
+                    //const scanLine = document.createElement('div');
+                    //scanLine.style.cssText = `
+                    //     position: absolute;
+                    //     top: 0;
+                    //     left: 0;
+                    //     right: 0;
+                    //     height: 1px;
+                    //     background: linear-gradient(90deg, transparent, #00ff88, transparent);
+                    //     z-index: 10;
+                    //     animation: matrixScan 2s ease-in-out;
+                    // `;
+                    //photoContainer.appendChild(scanLine);
                     
-                    setTimeout(() => {
-                        if (scanLine.parentNode) {
-                            scanLine.parentNode.removeChild(scanLine);
-                        }
-                    }, 2000);
+                    //setTimeout(() => {
+                    //     if (scanLine.parentNode) {
+                    //         scanLine.parentNode.removeChild(scanLine);
+                    //     }
+                    // }, 2000);
                 }, i * 500);
             }
             
             setTimeout(() => {
                 this.style.animation = '';
             }, 3000);
+            
+            //Open Matrix Terminal
+            openMatrixTerminal();
         });
+    }
+    
+    //Matrix Terminal Functions
+    let terminalOpen = false;
+    
+    function openMatrixTerminal() {
+        if (terminalOpen) return;
+        
+        terminalOpen = true;
+        
+        //Create terminal overlay
+        const terminal = document.createElement('div');
+        terminal.className = 'matrix-terminal';
+        terminal.innerHTML = `
+            <div class="terminal-header">
+                <span class="terminal-title">Terminal</span>
+                <button class="terminal-close" onclick="closeMatrixTerminal()">×</button>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-line">$ <span class="typing-text" data-text="whoami"></span></div>
+                <div class="terminal-output" style="display: none;">Zakariae El Bouzidi
+Computer Science & Networks Engineering Student</div>
+                
+                <div class="terminal-line">$ <span class="typing-text" data-text="ls -la" data-delay="2000"></span></div>
+                <div class="terminal-output" style="display: none;">
+                    drwxr-xr-x  home/         4096  Jan 2025<br>
+                    drwxr-xr-x  projects/     4096  Jan 2025<br>
+                    drwxr-xr-x  skills/       4096  Jan 2025<br>
+                    drwxr-xr-x  experience/   4096  Jan 2025<br>
+                    drwxr-xr-x  contact/      4096  Jan 2025
+                </div>
+                
+                <div class="terminal-line">$ <span class="typing-text" data-text="cat skills.txt" data-delay="4000"></span></div>
+                <div class="terminal-output" style="display: none;">
+                    === TECHNOLOGIES & TOOLS ===<br>
+                    [████████████████████] Python Ecosystem<br>
+                    [████████████████████] Mobile Development<br>
+                    [████████████████████] Web Technologies<br>
+                    [████████████████████] Database Systems<br>
+                    [████████████████████] Problem Solving
+                </div>
+                
+                <div class="terminal-line">$ <span class="typing-text" data-text="echo 'Welcome to my portfolio'" data-delay="6000"></span></div>
+                <div class="terminal-output" style="display: none;">Welcome to my portfolio</div>
+                
+                <div class="terminal-line">$ <span class="typing-text" data-text="exit" data-delay="8000"></span></div>
+            </div>
+        `;
+        
+        document.body.appendChild(terminal);
+        
+        //Animate terminal opening
+        setTimeout(() => {
+            terminal.style.opacity = '1';
+            terminal.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 100);
+        
+        //Start typing animations
+        setTimeout(() => {
+            animateTerminalTyping();
+        }, 500);
+    }
+    
+    function animateTerminalTyping() {
+        const typingElements = document.querySelectorAll('.typing-text');
+        let currentIndex = 0;
+        
+        function typeNext() {
+            if (currentIndex < typingElements.length) {
+                const element = typingElements[currentIndex];
+                const text = element.getAttribute('data-text');
+                const delay = parseInt(element.getAttribute('data-delay')) || 0;
+                
+                setTimeout(() => {
+                    typeText(element, text, () => {
+                        //Show output after typing
+                        const output = element.parentElement.nextElementSibling;
+                        if (output && output.classList.contains('terminal-output')) {
+                            setTimeout(() => {
+                                output.style.display = 'block';
+                                output.style.opacity = '1';
+                            }, 500);
+                        }
+                        
+                        currentIndex++;
+                        typeNext();
+                    });
+                }, delay);
+            }
+        }
+        
+        typeNext();
+    }
+    
+    function typeText(element, text, callback) {
+        let index = 0;
+        element.textContent = '';
+        
+        function typeChar() {
+            if (index < text.length) {
+                element.textContent += text[index];
+                index++;
+                setTimeout(typeChar, 50);
+            } else {
+                if (callback) callback();
+            }
+        }
+        
+        typeChar();
+    }
+    
+    function closeMatrixTerminal() {
+        const terminal = document.querySelector('.matrix-terminal');
+        if (terminal) {
+            terminal.style.opacity = '0';
+            terminal.style.transform = 'translate(-50%, -50%) scale(0.8)';
+            setTimeout(() => {
+                terminal.remove();
+                terminalOpen = false;
+            }, 300);
+        }
+    }
+    
+    //Make closeMatrixTerminal global
+    window.closeMatrixTerminal = closeMatrixTerminal;
+    
+    //Typing Effect on Hero Title (only on initial load)
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let typingInterval = null;
+        
+        function typeHeroTitle() {
+            let index = 0;
+            heroTitle.textContent = '';
+            
+            function typeChar() {
+                if (index < originalText.length) {
+                    heroTitle.textContent += originalText[index];
+                    index++;
+                    typingInterval = setTimeout(typeChar, 100);
+                }
+            }
+            typeChar();
+        }
+        
+        function stopTyping() {
+            if (typingInterval) {
+                clearTimeout(typingInterval);
+                typingInterval = null;
+            }
+        }
+        
+        //Start typing effect only on initial page load
+        if (isInitialLoad) {
+            setTimeout(typeHeroTitle, 1000);
+        } else {
+            //If not initial load, stop any ongoing typing and set text directly
+            stopTyping();
+            heroTitle.textContent = originalText;
+        }
+        
+        //Make stopTyping available globally for language changes
+        window.stopTyping = stopTyping;
     }
     
     //timeline elements animation
@@ -430,9 +625,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             //scroll down
             header.style.transform = 'translateY(-100%)';
+            header.classList.add('scrolled');
         } else {
             //scroll up
             header.style.transform = 'translateY(0)';
+            if(scrollTop > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         }
         
         lastScrollTop = scrollTop;

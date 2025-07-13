@@ -1,4 +1,4 @@
-# Portfolio - Zakariae El Bouzidi
+# Accessible sur PC et mobile
 
 ## About
 

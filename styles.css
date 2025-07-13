@@ -279,10 +279,15 @@ body::after {
     min-height: 100vh;
     padding: 3rem 0;
     display: none;
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.7s cubic-bezier(.77,0,.18,1), transform 0.7s cubic-bezier(.77,0,.18,1);
 }
 
 .section.active {
     display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .section-title {
@@ -308,7 +313,7 @@ body::after {
     opacity: 0.7;
 }
 
-/* Hero section */
+/*Herosection*/
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -366,11 +371,13 @@ body::after {
     align-items: center;
 }
 
-/* Animation de photo de profil Matrix futuriste originale */
+/*AnimationdephotodeprofilMatrixfuturisteoriginale*/
 .profile-photo-container {
     position: relative;
     display: inline-block;
     perspective: 1000px;
+    pointer-events: auto;
+    z-index: 5;
 }
 
 .profile-photo {
@@ -386,9 +393,11 @@ body::after {
     overflow: hidden;
     transform-style: preserve-3d;
     animation: photoGlow 3s ease-in-out infinite;
+    pointer-events: auto;
+    z-index: 10;
 }
 
-/* Animation de lueur automatique */
+/*Animationdelueurautomatique*/
 @keyframes photoGlow {
     0%, 100% {
         box-shadow: 0 0 30px rgba(76, 175, 80, 0.2);
@@ -418,27 +427,14 @@ body::after {
     z-index: -1;
 }
 
-/* Effet de scan Matrix */
+/*EffetdescanMatrix*/
 .profile-photo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(76, 175, 80, 0.6) 50%,
-        transparent 100%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 1;
+    opacity: 0 !important;
+    animation: none !important;
+    background: none !important;
 }
 
-/* Particules holographiques autour de la photo */
+/*Particulesholographiquesautourdelaphoto*/
 .profile-photo-container::before {
     content: '';
     position: absolute;
@@ -454,7 +450,7 @@ body::after {
     transition: opacity 0.6s ease;
 }
 
-/* Points de scan Matrix */
+/*PointsdescanMatrix*/
 .profile-photo-container::after {
     content: '';
     position: absolute;
@@ -502,8 +498,8 @@ body::after {
 }
 
 .profile-photo:hover::after {
-    opacity: 1;
-    animation: matrixScan 1s ease-in-out infinite;
+    opacity: 0 !important;
+    animation: none !important;
 }
 
 .profile-photo-container:hover::before {
@@ -516,7 +512,7 @@ body::after {
     animation: scanCircle 2s ease-in-out infinite;
 }
 
-/* Animation de scan Matrix */
+/*AnimationdescanMatrix*/
 @keyframes matrixScan {
     0% {
         transform: translateX(-100%);
@@ -531,7 +527,7 @@ body::after {
     }
 }
 
-/* Animation de bordure Matrix rotative */
+/*AnimationdebordureMatrixrotative*/
 @keyframes matrixBorderRotate {
     0% {
         transform: rotate(0deg);
@@ -541,7 +537,7 @@ body::after {
     }
 }
 
-/* Animation de pulsation holographique */
+/*Animationdepulsationholographique*/
 @keyframes holographicPulse {
     0%, 100% {
         opacity: 0;
@@ -553,7 +549,7 @@ body::after {
     }
 }
 
-/* Animation de cercle de scan */
+/*Animationdecercledescan*/
 @keyframes scanCircle {
     0% {
         opacity: 0;
@@ -569,7 +565,7 @@ body::after {
     }
 }
 
-/* Effet de particules Matrix flottantes */
+/*EffetdeparticulesMatrixflottantes*/
 .matrix-particles {
     position: absolute;
     top: 0;
@@ -853,11 +849,11 @@ body::after {
 }
 
 .profile-photo:hover::after {
-    opacity: 1;
-    animation: rotate 3s linear infinite;
+    opacity: 0 !important;
+    animation: none !important;
 }
 
-/* Animation de scan Matrix */
+/*AnimationdescanMatrix*/
 @keyframes matrixScan {
     0% {
         transform: translateY(-100%);
@@ -874,7 +870,7 @@ body::after {
 
 /* Suppression de l'effet de trait au survol */
 
-/* Buttons */
+/*Buttons*/
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -985,7 +981,7 @@ body::after {
     border-color: rgba(76, 175, 80, 0.3);
 }
 
-/* Indicateur visuel pour les boutons cliquables */
+/*Indicateurvisuelpourlesboutonscliquables*/
 .btn:not(.btn-static):not(:disabled)::before {
     content: '';
     position: absolute;
@@ -1030,7 +1026,7 @@ body::after {
     position: relative;
 }
 
-/* Animation de pulsation pour les boutons cliquables */
+/*Animationdepulsationpourlesboutonscliquables*/
 @keyframes buttonPulse {
     0%, 100% { 
         box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
@@ -1228,7 +1224,7 @@ body::after {
     text-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
 }
 
-/* Timeline */
+/*Timeline*/
 .timeline {
     position: relative;
     max-width: 800px;
@@ -1304,7 +1300,7 @@ body::after {
     font-family: 'Courier New', monospace;
 }
 
-/* Contact */
+/*Contact*/
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1373,7 +1369,7 @@ body::after {
     text-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
 }
 
-/* Contact form */
+/*Contactform*/
 .contact-form {
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid #4CAF50;
@@ -1452,7 +1448,7 @@ body::after {
     margin-top: auto;
 }
 
-/* Form status notifications */
+/*Formstatusnotifications*/
 .form-status {
     margin-top: 1rem;
     padding: 1.5rem;
@@ -1491,7 +1487,7 @@ body::after {
     background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(79, 172, 254, 0.4));
 }
 
-/* Footer */
+/*Footer*/
 .footer {
     background: rgba(0, 0, 0, 0.9);
     border-top: 1px solid #4CAF50;
@@ -1558,7 +1554,7 @@ body::after {
     }
 }
 
-/* Tablettes */
+/*Tablettes*/
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
@@ -1676,7 +1672,7 @@ body::after {
     }
 }
 
-/* Mobiles */
+/*Mobiles*/
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
@@ -1873,7 +1869,7 @@ body::after {
     }
 }
 
-/* Mode paysage sur mobile */
+/*Modepaysagesurmobile*/
 @media (max-width: 768px) and (orientation: landscape) {
     .hero {
         grid-template-columns: 1fr 1fr;
@@ -1918,7 +1914,7 @@ body::after {
   }
 } 
 
-/* mobile nav bar EN HAUT */
+/*mobilenavbarENHAUT*/
 .mobile-nav {
     display: none;
 }
@@ -2250,4 +2246,192 @@ body::after {
         min-height: 2.4em;
         max-height: 2.4em;
     }
+}
+
+/*MatrixTerminalStyles*/
+.matrix-terminal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 80%;
+    max-width: 600px;
+    height: 70%;
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid #00ff41;
+    border-radius: 10px;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+}
+
+.terminal-header {
+    background: #00ff41;
+    color: #000;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.terminal-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.terminal-close {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.terminal-close:hover {
+    color: #ff0000;
+}
+
+.terminal-content {
+    padding: 20px;
+    color: #00ff41;
+    font-size: 14px;
+    line-height: 1.6;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+}
+
+.terminal-line {
+    margin-bottom: 10px;
+}
+
+.typing-text {
+    border-right: 2px solid #00ff41;
+    animation: blink 1s infinite;
+}
+
+.terminal-output {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(0, 255, 65, 0.1);
+    border-left: 3px solid #00ff41;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes blink {
+    0%, 50% { border-color: #00ff41; }
+    51%, 100% { border-color: transparent; }
+}
+
+/*EnhancedMatrixBackgroundforTerminal*/
+.matrix-terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(90deg, transparent 98%, rgba(0, 255, 65, 0.1) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(0, 255, 65, 0.1) 100%);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+    animation: matrixScan 2s linear infinite;
+}
+
+@keyframes matrixScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Fix pour éviter le chevauchement des traductions */
+.nav-text, .mobile-nav-text {
+    transition: opacity 0.3s ease;
+}
+
+.nav-text[data-lang="en"], .mobile-nav-text[data-lang="en"] {
+    display: none;
+}
+
+.nav-text[data-lang="fr"], .mobile-nav-text[data-lang="fr"] {
+    display: block;
+}
+
+/* Correction pour le système de traduction */
+[data-fr], [data-en] {
+    transition: opacity 0.3s ease;
+}
+
+[data-fr][data-lang="en"], [data-en][data-lang="fr"] {
+    display: none;
+}
+
+[data-fr][data-lang="fr"], [data-en][data-lang="en"] {
+    display: block;
+}
+
+/* --- Transitions globales et effets sophistiqués (suite) --- */
+
+.project-card {
+  transition: box-shadow 0.4s cubic-bezier(.77,0,.18,1),
+              transform 0.4s cubic-bezier(.77,0,.18,1),
+              opacity 0.7s cubic-bezier(.77,0,.18,1);
+  box-shadow: 0 2px 16px 0 rgba(76,175,80,0.08);
+}
+.project-card:hover {
+  transform: scale(1.035) translateY(-6px) rotateZ(-0.5deg);
+  box-shadow: 0 8px 32px 0 rgba(76,175,80,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+  z-index: 2;
+}
+
+.btn {
+  transition: background 0.3s cubic-bezier(.77,0,.18,1),
+              color 0.3s cubic-bezier(.77,0,.18,1),
+              box-shadow 0.3s cubic-bezier(.77,0,.18,1),
+              transform 0.25s cubic-bezier(.77,0,.18,1);
+}
+.btn:hover:not(:disabled) {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 4px 16px 0 rgba(76,175,80,0.18);
+}
+
+.nav-link, .mobile-nav-link {
+  transition: color 0.3s cubic-bezier(.77,0,.18,1),
+              border-color 0.3s cubic-bezier(.77,0,.18,1),
+              background 0.3s cubic-bezier(.77,0,.18,1),
+              box-shadow 0.3s cubic-bezier(.77,0,.18,1);
+}
+.nav-link:hover, .mobile-nav-link:hover, .nav-link.active, .mobile-nav-link.active {
+  color: #fff;
+  background: rgba(76,175,80,0.10);
+  box-shadow: 0 2px 8px 0 rgba(76,175,80,0.10);
+}
+
+.header {
+  transition: box-shadow 0.4s cubic-bezier(.77,0,.18,1), background 0.3s cubic-bezier(.77,0,.18,1);
+}
+.header.scrolled {
+  box-shadow: 0 4px 24px 0 rgba(76,175,80,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.10);
+  background: rgba(10, 10, 10, 0.98);
+}
+
+@media (max-width: 768px) {
+  .project-card:hover {
+    transform: scale(1.01) translateY(-2px);
+  }
+  .btn:hover:not(:disabled) {
+    transform: scale(1.03) translateY(-1px);
+  }
+}
+
+.profile-photo::before,
+.profile-photo::after,
+.profile-photo-container::before,
+.profile-photo-container::after {
+    pointer-events: none !important;
 }
