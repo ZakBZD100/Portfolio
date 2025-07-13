@@ -4,6 +4,8 @@
 
 Personal portfolio, compatible for both mobile/desktop, developed in HTML5, CSS3 and vanilla Javascript. bilingual french/english interface with smooth animations and modern dark theme.
 
+![Portfolio Screenshot](Screenshot.png)
+
 ## Technologies used
 
 - frontend : html5, css3, javascript (es6+)
