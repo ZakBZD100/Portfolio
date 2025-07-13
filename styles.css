@@ -2222,16 +2222,19 @@ body::after {
         justify-content: center;
     }
     .mobile-nav-text {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: visible;
         text-overflow: unset;
         white-space: normal;
         width: 100%;
-        font-size: 0.7em;
-        line-height: 1.1;
+        font-size: 0.65em;
+        line-height: 1.0;
         margin-top: 3px;
         text-align: center;
-        height: auto;
-        min-height: 2.2em;
+        height: 2.4em;
+        min-height: 2.4em;
+        max-height: 2.4em;
     }
 }
