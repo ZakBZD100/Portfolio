@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const sections = document.querySelectorAll('.section');
     const languageToggle = document.querySelector('.language-toggle');
+    const mobileLangToggle = document.querySelector('.mobile-lang-toggle');
     
     //language state
     let currentLang = 'fr';
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     //initialize EmailJS with your public key
     emailjs.init("0WBHJeDymJUQ_QPXn");
-    //language change
+    //language change desktop
     languageToggle.addEventListener('click', function() {
         currentLang = currentLang === 'fr' ? 'en' : 'fr';
         this.textContent = currentLang.toUpperCase();
@@ -67,7 +68,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.textContent = newText;
             }
         });
+        //sync mobile button
+        if (mobileLangToggle) {
+            mobileLangToggle.textContent = currentLang.toUpperCase();
+            mobileLangToggle.setAttribute('data-lang', currentLang);
+        }
     });
+    //language change mobile
+    if (mobileLangToggle) {
+        mobileLangToggle.addEventListener('click', function() {
+            currentLang = currentLang === 'fr' ? 'en' : 'fr';
+            this.textContent = currentLang.toUpperCase();
+            this.setAttribute('data-lang', currentLang);
+            //update all texts with data-fr and data-en attributes
+            const elementsWithLang = document.querySelectorAll('[data-fr][data-en]');
+            elementsWithLang.forEach(element => {
+                const newText = currentLang === 'fr' ? element.getAttribute('data-fr') : element.getAttribute('data-en');
+                if (newText) {
+                    element.textContent = newText;
+                }
+            });
+            //sync desktop button
+            if (languageToggle) {
+                languageToggle.textContent = currentLang.toUpperCase();
+                languageToggle.setAttribute('data-lang', currentLang);
+            }
+        });
+    }
     
     //contact form management with EmailJS
     const contactForm = document.getElementById('contactForm');

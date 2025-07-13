@@ -1914,7 +1914,7 @@ body::after {
   }
 } 
 
-/* mobile nav bar */
+/* mobile nav bar EN HAUT */
 .mobile-nav {
     display: none;
 }
@@ -1923,19 +1923,16 @@ body::after {
     .header, .nav, .nav-menu {
         display: none !important;
     }
-    .main {
-        padding-top: 0 !important;
-    }
     .mobile-nav {
         display: flex;
         position: fixed;
         left: 0;
         right: 0;
-        bottom: 0;
-        height: 60px;
+        top: 0;
+        height: 56px;
         background: rgba(10, 10, 10, 0.98);
-        border-top: 1px solid rgba(76, 175, 80, 0.2);
-        box-shadow: 0 -2px 16px rgba(0,0,0,0.25);
+        border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+        box-shadow: 0 2px 16px rgba(0,0,0,0.25);
         z-index: 2000;
         justify-content: space-around;
         align-items: center;
@@ -1957,14 +1954,99 @@ body::after {
     .mobile-nav-link:active, .mobile-nav-link.active {
         color: #fff;
         background: rgba(76, 175, 80, 0.12);
-        border-radius: 8px 8px 0 0;
+        border-radius: 0 0 8px 8px;
     }
     .mobile-nav-text {
         font-size: 0.7rem;
         margin-top: 2px;
         letter-spacing: 0.5px;
     }
+    .mobile-lang-toggle {
+        background: rgba(76, 175, 80, 0.1);
+        border: 1px solid rgba(76, 175, 80, 0.5);
+        color: #4CAF50;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-family: 'Courier New', monospace;
+        margin-left: 8px;
+        margin-right: 0;
+        align-self: center;
+        height: 36px;
+        min-width: 44px;
+    }
+    .main {
+        padding-top: 56px !important;
+        padding-bottom: 0 !important;
+    }
+    .footer {
+        position: static !important;
+        width: 100%;
+        margin: 0;
+        z-index: 100;
+    }
     body {
-        padding-bottom: 60px;
+        padding-bottom: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* ...autres styles... */
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+        margin: 2rem 0 0 0;
+        padding: 0 0.5rem;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(76, 175, 80, 0.25);
+        z-index: 0;
+    }
+    .timeline-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        background: rgba(10,10,10,0.95);
+        border: 1px solid rgba(76,175,80,0.18);
+        border-radius: 12px;
+        margin: 1.2rem 0 1.2rem 30px;
+        padding: 1rem 1rem 1rem 2.5rem;
+        box-shadow: 0 2px 12px rgba(76,175,80,0.08);
+        position: relative;
+        z-index: 1;
+    }
+    .timeline-date {
+        position: absolute;
+        left: -60px;
+        top: 1.2rem;
+        min-width: 60px;
+        font-size: 0.8rem;
+        color: #4CAF50;
+        background: rgba(10,10,10,0.95);
+        border-radius: 6px;
+        padding: 0.2rem 0.5rem;
+        text-align: right;
+        z-index: 2;
+        border: 1px solid rgba(76,175,80,0.12);
+    }
+    .timeline-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+        color: #4CAF50;
+    }
+    .timeline-description {
+        font-size: 0.95rem;
+        color: #b6ffb6;
+        margin-bottom: 0;
     }
 }
