@@ -47,7 +47,7 @@ url : https://zakbzd100.github.io/Portfolio
 
 zakariae el bouzidi - full stack developer  
 - email : zak.elbouzidi@gmail.com  
-- linkedin : https://linkedin.com/in/zakariae-el-bouzidi  
+- linkedin : https://www.linkedin.com/in/zakariae-elbouzidi  
 - github : https://github.com/ZakBZD100  
 
 ## License
