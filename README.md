@@ -1,4 +1,4 @@
-# Accessible sur PC et mobile
+# PC/Mobile friendly
 
 ## About
 
