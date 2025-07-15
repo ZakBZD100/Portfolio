@@ -2302,6 +2302,29 @@ body::after {
     line-height: 1.6;
     height: calc(100% - 60px);
     overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/*Mobile terminal optimizations*/
+@media (max-width: 768px) {
+    .terminal-content {
+        padding: 15px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    .terminal-line {
+        margin-bottom: 8px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .terminal-output {
+        margin: 8px 0;
+        padding: 8px;
+        font-size: 11px;
+        line-height: 1.3;
+    }
 }
 
 .terminal-line {
@@ -2374,13 +2397,37 @@ body::after {
     .matrix-terminal.pong-game {
         width: 95%;
         height: 80%;
+        max-height: 70vh;
     }
     
     .matrix-terminal.pong-game .terminal-content {
         font-size: 10px;
+        padding: 10px;
+        overflow: hidden;
     }
     
     .matrix-terminal.pong-game pre {
+        font-size: 10px;
+        line-height: 0.8;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /*Ensure game fits on screen without scrolling*/
+    .matrix-terminal.pong-game .game-instructions {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .matrix-terminal.pong-game .game-over {
+        margin-top: 10px;
+    }
+    
+    .matrix-terminal.pong-game .game-over h2 {
+        font-size: 14px;
+    }
+    
+    .matrix-terminal.pong-game .game-over p {
         font-size: 10px;
     }
 }

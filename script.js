@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     drwxr-xr-x  ${currentLang === 'fr' ? 'contact/' : 'contact/'}      4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025
                 </div>
                 
-                <div class="terminal-line">$ <span class="typing-text" data-text="cat skills.txt" data-delay="4000"></span></div>
+                <div class="terminal-line">$ <span class="typing-text" data-text="${currentLang === 'fr' ? 'cat competences.txt' : 'cat skills.txt'}" data-delay="4000"></span></div>
                 <div class="terminal-output" style="display: none;">
                     === ${currentLang === 'fr' ? 'TECHNOLOGIES & OUTILS' : 'TECHNOLOGIES & TOOLS'} ===<br>
                     [██████████████████░░░░] ${currentLang === 'fr' ? 'Écosystème Python' : 'Python Ecosystem'} (70%)<br>
@@ -433,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     [████████████████████░░] ${currentLang === 'fr' ? 'Résolution de Problèmes' : 'Problem Solving'} (80%)
                 </div>
                 
-                <div class="terminal-line">$ <span class="typing-text" data-text="echo 'Welcome to my portfolio'" data-delay="6000"></span></div>
+                <div class="terminal-line">$ <span class="typing-text" data-text="echo '${currentLang === 'fr' ? 'Bienvenue dans mon portfolio' : 'Welcome to my portfolio'}'" data-delay="6000"></span></div>
                 <div class="terminal-output" style="display: none;">${currentLang === 'fr' ? 'Bienvenue dans mon portfolio' : 'Welcome to my portfolio'}</div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="./pong.sh" data-delay="8000"></span></div>
@@ -472,6 +472,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             setTimeout(() => {
                                 output.style.display = 'block';
                                 output.style.opacity = '1';
+                                
+                                //Auto-scroll to bottom on mobile
+                                const terminalContent = document.querySelector('.terminal-content');
+                                if (terminalContent) {
+                                    terminalContent.scrollTop = terminalContent.scrollHeight;
+                                }
                             }, 500);
                         }
                         
@@ -487,6 +493,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                 const terminalContent = document.querySelector('.terminal-content');
                                 if (terminalContent) {
                                     terminalContent.innerHTML = `<div style="color: #00ff41;">${currentLang === 'fr' ? 'Initialisation du jeu Pong Matrix...' : 'Initializing Pong Matrix game...'}</div>`;
+                                    
+                                    //Auto-scroll to bottom
+                                    terminalContent.scrollTop = terminalContent.scrollHeight;
+                                    
                                     setTimeout(() => {
                                         const terminal = document.querySelector('.matrix-terminal');
                                         terminal.classList.add('pong-game');
@@ -545,9 +555,19 @@ document.addEventListener('DOMContentLoaded', function() {
             this.gameRunning = false;
             this.gameLoop = null;
             
-            //Game dimensions (ASCII grid)
-            this.width = 60;
-            this.height = 20;
+            //Game dimensions (ASCII grid) - adaptive for mobile
+            this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                           (window.innerWidth <= 768) || 
+                           ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            
+            //Adjust dimensions for mobile
+            if (this.isMobile) {
+                this.width = 40;
+                this.height = 15;
+            } else {
+                this.width = 60;
+                this.height = 20;
+            }
             
             //Game objects
             this.ball = {
@@ -586,11 +606,6 @@ document.addEventListener('DOMContentLoaded', function() {
             //Touch controls for mobile
             this.touchY = null;
             this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            
-            //Enhanced mobile compatibility check
-            this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                           (window.innerWidth <= 768) || 
-                           this.isTouchDevice;
             
             this.init();
         }
@@ -861,7 +876,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             display += '─'.repeat(this.width) + '\n';
             
-            this.content.innerHTML = `<pre style="color: #00ff41; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1;">${display}</pre>`;
+            //Adaptive font size for mobile
+            const fontSize = this.isMobile ? '10px' : '12px';
+            const lineHeight = this.isMobile ? '0.8' : '1';
+            
+            this.content.innerHTML = `<pre style="color: #00ff41; font-family: 'Courier New', monospace; font-size: ${fontSize}; line-height: ${lineHeight}; margin: 0; padding: 0;">${display}</pre>`;
+            
+            //Auto-scroll to bottom for mobile
+            if (this.isMobile) {
+                this.content.scrollTop = this.content.scrollHeight;
+            }
         }
         
         checkGameOver() {
