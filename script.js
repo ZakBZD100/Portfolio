@@ -407,36 +407,36 @@ document.addEventListener('DOMContentLoaded', function() {
         terminal.className = 'matrix-terminal';
         terminal.innerHTML = `
             <div class="terminal-header">
-                <span class="terminal-title">Terminal</span>
+                <span class="terminal-title">${currentLang === 'fr' ? 'Terminal' : 'Terminal'}</span>
                 <button class="terminal-close" onclick="closeMatrixTerminal()">×</button>
             </div>
             <div class="terminal-content">
                 <div class="terminal-line">$ <span class="typing-text" data-text="whoami"></span></div>
-                <div class="terminal-output" style="display: none;">Zakariae El Bouzidi - Computer Science & Networks Engineering Student</div>
+                <div class="terminal-output" style="display: none;">Zakariae El Bouzidi - ${currentLang === 'fr' ? 'Élève-ingénieur en Informatique & Réseaux' : 'Computer Science & Networks Engineering Student'}</div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="ls -la" data-delay="2000"></span></div>
                 <div class="terminal-output" style="display: none;">
-                    drwxr-xr-x  home/         4096  Jul 2025<br>
-                    drwxr-xr-x  projects/     4096  Jul 2025<br>
-                    drwxr-xr-x  skills/       4096  Jul 2025<br>
-                    drwxr-xr-x  experience/   4096  Jul 2025<br>
-                    drwxr-xr-x  contact/      4096  Jul 2025
+                    drwxr-xr-x  ${currentLang === 'fr' ? 'accueil/' : 'home/'}         4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025<br>
+                    drwxr-xr-x  ${currentLang === 'fr' ? 'projets/' : 'projects/'}     4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025<br>
+                    drwxr-xr-x  ${currentLang === 'fr' ? 'competences/' : 'skills/'}       4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025<br>
+                    drwxr-xr-x  ${currentLang === 'fr' ? 'experiences/' : 'experience/'}   4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025<br>
+                    drwxr-xr-x  ${currentLang === 'fr' ? 'contact/' : 'contact/'}      4096  ${currentLang === 'fr' ? 'Jui' : 'Jul'} 2025
                 </div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="cat skills.txt" data-delay="4000"></span></div>
                 <div class="terminal-output" style="display: none;">
-                    === TECHNOLOGIES & TOOLS ===<br>
-                    [██████████████████░░░░] Python Ecosystem (70%)<br>
-                    [████████████████████░░] Mobile Development (80%)<br>
-                    [███████████████████░░░] Web Technologies (75%)<br>
-                    [████████████████████░░] Database Systems (80%)<br>
-                    [████████████████████░░] Problem Solving (80%)
+                    === ${currentLang === 'fr' ? 'TECHNOLOGIES & OUTILS' : 'TECHNOLOGIES & TOOLS'} ===<br>
+                    [██████████████████░░░░] ${currentLang === 'fr' ? 'Écosystème Python' : 'Python Ecosystem'} (70%)<br>
+                    [████████████████████░░] ${currentLang === 'fr' ? 'Développement Mobile' : 'Mobile Development'} (80%)<br>
+                    [███████████████████░░░] ${currentLang === 'fr' ? 'Technologies Web' : 'Web Technologies'} (75%)<br>
+                    [████████████████████░░] ${currentLang === 'fr' ? 'Systèmes de Base de Données' : 'Database Systems'} (80%)<br>
+                    [████████████████████░░] ${currentLang === 'fr' ? 'Résolution de Problèmes' : 'Problem Solving'} (80%)
                 </div>
                 
                 <div class="terminal-line">$ <span class="typing-text" data-text="echo 'Welcome to my portfolio'" data-delay="6000"></span></div>
-                <div class="terminal-output" style="display: none;">Welcome to my portfolio</div>
+                <div class="terminal-output" style="display: none;">${currentLang === 'fr' ? 'Bienvenue dans mon portfolio' : 'Welcome to my portfolio'}</div>
                 
-                <div class="terminal-line">$ <span class="typing-text" data-text="exit" data-delay="8000"></span></div>
+                <div class="terminal-line">$ <span class="typing-text" data-text="./pong.sh" data-delay="8000"></span></div>
             </div>
         `;
         
@@ -475,6 +475,27 @@ document.addEventListener('DOMContentLoaded', function() {
                             }, 500);
                         }
                         
+                                                //Check if this is the pong command
+                        if (text === './pong.sh') {
+                            setTimeout(() => {
+                                //Stop any ongoing typing animation
+                                if (window.stopTyping) {
+                                    window.stopTyping();
+                                }
+                                
+                                //Clear terminal and start Pong game
+                                const terminalContent = document.querySelector('.terminal-content');
+                                if (terminalContent) {
+                                    terminalContent.innerHTML = `<div style="color: #00ff41;">${currentLang === 'fr' ? 'Initialisation du jeu Pong Matrix...' : 'Initializing Pong Matrix game...'}</div>`;
+                                    setTimeout(() => {
+                                        const terminal = document.querySelector('.matrix-terminal');
+                                        terminal.classList.add('pong-game');
+                                        pongGame = new PongGame(terminal);
+                                    }, 1000);
+                                }
+                            }, 1000);
+                        }
+                        
                         currentIndex++;
                         typeNext();
                     });
@@ -511,6 +532,367 @@ document.addEventListener('DOMContentLoaded', function() {
                 terminal.remove();
                 terminalOpen = false;
             }, 300);
+        }
+    }
+    
+    //PONG GAME LOGIC
+    let pongGame = null;
+    
+    class PongGame {
+        constructor(terminalElement) {
+            this.terminal = terminalElement;
+            this.content = terminalElement.querySelector('.terminal-content');
+            this.gameRunning = false;
+            this.gameLoop = null;
+            
+            //Game dimensions (ASCII grid)
+            this.width = 60;
+            this.height = 20;
+            
+            //Game objects
+            this.ball = {
+                x: Math.floor(this.width / 2),
+                y: Math.floor(this.height / 2),
+                dx: 1,
+                dy: 1,
+                speed: 0.8 // Vitesse équilibrée - plus rapide que les raquettes
+            };
+            
+            this.playerPaddle = {
+                x: 2,
+                y: Math.floor(this.height / 2) - 2,
+                height: 4,
+                score: 0
+            };
+            
+            this.aiPaddle = {
+                x: this.width - 3,
+                y: Math.floor(this.height / 2) - 2,
+                height: 4,
+                score: 0
+            };
+            
+            //Game state
+            this.scoreLimit = 5;
+            this.gameOver = false;
+            this.winner = null;
+            
+            //Controls
+            this.keys = {
+                up: false,
+                down: false
+            };
+            
+            //Touch controls for mobile
+            this.touchY = null;
+            this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            //Enhanced mobile compatibility check
+            this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                           (window.innerWidth <= 768) || 
+                           this.isTouchDevice;
+            
+            this.init();
+        }
+        
+        init() {
+            //Clear terminal content
+            this.content.innerHTML = '';
+            
+            //Add game instructions
+            this.addGameInstructions();
+            
+            //Setup controls
+            this.setupControls();
+            
+            //Game will start when user clicks button or presses space
+        }
+        
+        addGameInstructions() {
+            const instructions = currentLang === 'fr' ? 
+                `<div style="color: #00ff41; text-align: center; margin-bottom: 20px;">
+                    <h3 style="color: #00ff41; margin-bottom: 15px;">PONG MATRIX</h3>
+                    <p style="margin-bottom: 10px;"><strong>Instructions:</strong></p>
+                    <p style="margin-bottom: 5px;">${this.isTouchDevice ? 'Touchez la moitié gauche de l\'écran pour déplacer votre raquette' : 'Utilisez Z (haut) et S (bas) pour déplacer votre raquette'}</p>
+                    <p style="margin-bottom: 15px;">Premier à ${this.scoreLimit} points gagne!</p>
+                    <p style="margin-bottom: 15px; font-size: 12px; opacity: 0.8;">Appuyez sur ESPACE ou cliquez sur le bouton pour commencer</p>
+                    <button id="startGameBtn" style="background: #00ff41; color: #000; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">CLIQUER POUR COMMENCER</button>
+                </div>` :
+                `<div style="color: #00ff41; text-align: center; margin-bottom: 20px;">
+                    <h3 style="color: #00ff41; margin-bottom: 15px;">PONG MATRIX</h3>
+                    <p style="margin-bottom: 10px;"><strong>Instructions:</strong></p>
+                    <p style="margin-bottom: 5px;">${this.isTouchDevice ? 'Touch the left half of the screen to move your paddle' : 'Use W (up) and S (down) to move your paddle'}</p>
+                    <p style="margin-bottom: 15px;">First to ${this.scoreLimit} points wins!</p>
+                    <p style="margin-bottom: 15px; font-size: 12px; opacity: 0.8;">Press SPACE or click the button to start</p>
+                    <button id="startGameBtn" style="background: #00ff41; color: #000; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">CLICK TO START</button>
+                </div>`;
+            
+            this.content.innerHTML = instructions;
+            
+            //Add click event to start button
+            const startBtn = document.getElementById('startGameBtn');
+            if (startBtn) {
+                startBtn.addEventListener('click', () => {
+                    this.startGame();
+                });
+            }
+            
+            //Also allow space key to start
+            const spaceHandler = (e) => {
+                if (e.code === 'Space' && !this.gameRunning) {
+                    e.preventDefault();
+                    this.startGame();
+                    document.removeEventListener('keydown', spaceHandler);
+                }
+            };
+            document.addEventListener('keydown', spaceHandler);
+        }
+        
+        setupControls() {
+            //Keyboard controls
+            document.addEventListener('keydown', (e) => {
+                if (!this.gameRunning) return;
+                
+                const key = e.key.toLowerCase();
+                if (currentLang === 'fr') {
+                    if (key === 'z') this.keys.up = true;
+                    if (key === 's') this.keys.down = true;
+                } else {
+                    if (key === 'w') this.keys.up = true;
+                    if (key === 's') this.keys.down = true;
+                }
+            });
+            
+            document.addEventListener('keyup', (e) => {
+                if (!this.gameRunning) return;
+                
+                const key = e.key.toLowerCase();
+                if (currentLang === 'fr') {
+                    if (key === 'z') this.keys.up = false;
+                    if (key === 's') this.keys.down = false;
+                } else {
+                    if (key === 'w') this.keys.up = false;
+                    if (key === 's') this.keys.down = false;
+                }
+            });
+            
+            //Touch controls for mobile
+            if (this.isTouchDevice) {
+                this.terminal.addEventListener('touchstart', (e) => {
+                    if (!this.gameRunning) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const touch = e.touches[0];
+                    const rect = this.terminal.getBoundingClientRect();
+                    this.touchY = touch.clientY - rect.top;
+                });
+                
+                this.terminal.addEventListener('touchmove', (e) => {
+                    if (!this.gameRunning) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const touch = e.touches[0];
+                    const rect = this.terminal.getBoundingClientRect();
+                    this.touchY = touch.clientY - rect.top;
+                });
+                
+                this.terminal.addEventListener('touchend', (e) => {
+                    if (!this.gameRunning) return;
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.touchY = null;
+                });
+            }
+        }
+        
+        startGame() {
+            this.gameRunning = true;
+            this.lastUpdate = Date.now();
+            
+            //Clear any existing game loop
+            if (this.gameLoop) {
+                cancelAnimationFrame(this.gameLoop);
+            }
+            
+            this.gameLoop = requestAnimationFrame(() => this.update());
+        }
+        
+        update() {
+            if (!this.gameRunning) return;
+            
+            const now = Date.now();
+            const deltaTime = now - this.lastUpdate;
+            
+            //Limiter à ~25 FPS pour un jeu ASCII fluide mais contrôlable
+            if (deltaTime >= 40) { // 40ms = 25 FPS
+                this.updatePaddles();
+                this.updateBall();
+                this.checkCollisions();
+                this.draw();
+                this.checkGameOver();
+                this.lastUpdate = now;
+            }
+            
+            if (!this.gameOver) {
+                this.gameLoop = requestAnimationFrame(() => this.update());
+            }
+        }
+        
+        updatePaddles() {
+            //Player paddle movement
+            if (this.isTouchDevice && this.touchY !== null) {
+                const rect = this.terminal.getBoundingClientRect();
+                const touchPercent = this.touchY / rect.height;
+                const targetY = Math.floor(touchPercent * this.height);
+                this.playerPaddle.y = Math.max(0, Math.min(this.height - this.playerPaddle.height, targetY - this.playerPaddle.height / 2));
+            } else if (this.isMobile && this.touchY !== null) {
+                //Fallback for mobile devices
+                const rect = this.terminal.getBoundingClientRect();
+                const touchPercent = this.touchY / rect.height;
+                const targetY = Math.floor(touchPercent * this.height);
+                this.playerPaddle.y = Math.max(0, Math.min(this.height - this.playerPaddle.height, targetY - this.playerPaddle.height / 2));
+            } else {
+                if (this.keys.up && this.playerPaddle.y > 0) {
+                    this.playerPaddle.y--;
+                }
+                if (this.keys.down && this.playerPaddle.y < this.height - this.playerPaddle.height) {
+                    this.playerPaddle.y++;
+                }
+            }
+            
+            //AI paddle movement (balanced - not too perfect, not too slow)
+            const aiCenter = this.aiPaddle.y + this.aiPaddle.height / 2;
+            const ballCenter = this.ball.y;
+            
+            //Add some imperfection but keep it competitive
+            if (Math.random() > 0.03) { // 97% chance to move (very slight imperfection)
+                if (aiCenter < ballCenter - 0.8 && this.aiPaddle.y < this.height - this.aiPaddle.height) {
+                    this.aiPaddle.y++;
+                } else if (aiCenter > ballCenter + 0.8 && this.aiPaddle.y > 0) {
+                    this.aiPaddle.y--;
+                }
+            }
+        }
+        
+        updateBall() {
+            this.ball.x += this.ball.dx * this.ball.speed;
+            this.ball.y += this.ball.dy * this.ball.speed;
+        }
+        
+        checkCollisions() {
+            //Wall collisions (top and bottom)
+            if (this.ball.y <= 0 || this.ball.y >= this.height - 1) {
+                this.ball.dy *= -1;
+            }
+            
+            //Paddle collisions
+            if (this.ball.x <= this.playerPaddle.x + 1 && 
+                this.ball.y >= this.playerPaddle.y && 
+                this.ball.y < this.playerPaddle.y + this.playerPaddle.height) {
+                this.ball.dx *= -1;
+                this.ball.speed = Math.min(this.ball.speed + 0.05, 1.5); // Accélération plus douce
+            }
+            
+            if (this.ball.x >= this.aiPaddle.x - 1 && 
+                this.ball.y >= this.aiPaddle.y && 
+                this.ball.y < this.aiPaddle.y + this.aiPaddle.height) {
+                this.ball.dx *= -1;
+                this.ball.speed = Math.min(this.ball.speed + 0.05, 1.5); // Accélération plus douce
+            }
+            
+            //Score points
+            if (this.ball.x <= 0) {
+                this.aiPaddle.score++;
+                this.resetBall();
+            } else if (this.ball.x >= this.width - 1) {
+                this.playerPaddle.score++;
+                this.resetBall();
+            }
+        }
+        
+        resetBall() {
+            this.ball.x = Math.floor(this.width / 2);
+            this.ball.y = Math.floor(this.height / 2);
+            this.ball.dx = Math.random() > 0.5 ? 1 : -1;
+            this.ball.dy = Math.random() > 0.5 ? 1 : -1;
+            this.ball.speed = 0.8; // Vitesse de départ équilibrée
+        }
+        
+        draw() {
+            let display = '';
+            
+            //Draw score
+            display += `${currentLang === 'fr' ? 'Score' : 'Score'}: ${this.playerPaddle.score} - ${this.aiPaddle.score}\n`;
+            display += '─'.repeat(this.width) + '\n';
+            
+            //Draw game field
+            for (let y = 0; y < this.height; y++) {
+                let line = '';
+                for (let x = 0; x < this.width; x++) {
+                    let char = ' ';
+                    
+                    //Draw paddles
+                    if (x === this.playerPaddle.x && 
+                        y >= this.playerPaddle.y && 
+                        y < this.playerPaddle.y + this.playerPaddle.height) {
+                        char = '#';
+                    }
+                    
+                    if (x === this.aiPaddle.x && 
+                        y >= this.aiPaddle.y && 
+                        y < this.aiPaddle.y + this.aiPaddle.height) {
+                        char = '#';
+                    }
+                    
+                    //Draw ball
+                    if (x === Math.floor(this.ball.x) && y === Math.floor(this.ball.y)) {
+                        char = 'O';
+                    }
+                    
+                    //Draw center line
+                    if (x === Math.floor(this.width / 2) && y % 2 === 0) {
+                        char = '│';
+                    }
+                    
+                    line += char;
+                }
+                display += line + '\n';
+            }
+            
+            display += '─'.repeat(this.width) + '\n';
+            
+            this.content.innerHTML = `<pre style="color: #00ff41; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1;">${display}</pre>`;
+        }
+        
+        checkGameOver() {
+            if (this.playerPaddle.score >= this.scoreLimit || this.aiPaddle.score >= this.scoreLimit) {
+                this.gameOver = true;
+                this.winner = this.playerPaddle.score >= this.scoreLimit ? 'player' : 'ai';
+                this.endGame();
+            }
+        }
+        
+        endGame() {
+            this.gameRunning = false;
+            
+            const message = this.winner === 'player' ? 
+                (currentLang === 'fr' ? 'VICTORY! Vous avez gagné!' : 'VICTORY! You won!') :
+                (currentLang === 'fr' ? 'GAME OVER! L\'IA a gagné!' : 'GAME OVER! AI won!');
+            
+            this.content.innerHTML = `
+                <div style="color: #00ff41; text-align: center; margin-top: 20px;">
+                    <h2 style="color: ${this.winner === 'player' ? '#00ff41' : '#ff0000'};">
+                        ${message}
+                    </h2>
+                    <p>${currentLang === 'fr' ? 'Score final' : 'Final Score'}: ${this.playerPaddle.score} - ${this.aiPaddle.score}</p>
+                    <p style="font-size: 12px; margin-top: 20px;">${currentLang === 'fr' ? 'Fermeture automatique dans 3 secondes...' : 'Auto-closing in 3 seconds...'}</p>
+                </div>
+            `;
+            
+            //Close terminal after 3 seconds
+            setTimeout(() => {
+                closeMatrixTerminal();
+            }, 3000);
         }
     }
     

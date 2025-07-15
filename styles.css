@@ -2322,6 +2322,69 @@ body::after {
     transition: opacity 0.5s ease;
 }
 
+/* Pong Game Styles */
+.matrix-terminal.pong-game {
+    cursor: none;
+}
+
+.matrix-terminal.pong-game .terminal-content {
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.matrix-terminal.pong-game pre {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1;
+    white-space: pre;
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+}
+
+.matrix-terminal.pong-game .game-instructions {
+    color: #00ff41;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.matrix-terminal.pong-game .game-over {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.matrix-terminal.pong-game .game-over h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.matrix-terminal.pong-game .game-over p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+/* Touch controls for mobile */
+@media (max-width: 768px) {
+    .matrix-terminal.pong-game {
+        width: 95%;
+        height: 80%;
+    }
+    
+    .matrix-terminal.pong-game .terminal-content {
+        font-size: 10px;
+    }
+    
+    .matrix-terminal.pong-game pre {
+        font-size: 10px;
+    }
+}
+
 @keyframes blink {
     0%, 50% { border-color: #00ff41; }
     51%, 100% { border-color: transparent; }
