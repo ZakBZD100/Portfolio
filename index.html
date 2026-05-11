@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Portfolio de Zakariae El Bouzidi - Élève ingénieur logiciel orienté systèmes, backend et ingénierie des données.">
+    <meta name="keywords" content="software engineer, backend, systems, data, Python, Django, FastAPI, Flutter, SNMP, portfolio">
+    <meta name="author" content="Zakariae El Bouzidi">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Zakariae El Bouzidi - Portfolio</title>
+    <!--Faviconclassique-->
+    <link rel="icon" type="image/png" sizes="16x16" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-96.png">
+    <!--FaviconmobileAndroidChrome-->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-96.png">
+    <!--FaviconiOSAppleTouchIcon-->
+    <link rel="apple-touch-icon" sizes="96x96" href="icons8-portfolio-dotted-favicons/web/icons8-portfolio-dotted-96.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--emailjssdk-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!--preloadcriticalresources-->
+    <link rel="preload" href="CVPHOTO.jpg" as="image">
+    <!--backgroundprogrammingelements-->
+    <div class="bg-elements">
+        <div class="code-rain"></div>
+        <div class="circuit-lines"></div>
+        <div class="binary-particles"></div>
+    </div>
+    
+    <!--barredenavigationmobileENHAUT-->
+    <nav class="mobile-nav">
+        <a href="#home" class="mobile-nav-link" data-section="home">
+            <img src="Emoticone/Nav/icons8-home-50.png" alt="Accueil" class="nav-icon">
+            <span class="mobile-nav-text nav-text" data-fr="Accueil" data-en="Home">Accueil</span>
+        </a>
+        <a href="#projects" class="mobile-nav-link" data-section="projects">
+            <img src="Emoticone/Nav/icons8-folder-50.png" alt="Projets" class="nav-icon">
+            <span class="mobile-nav-text nav-text" data-fr="Projets" data-en="Projects">Projets</span>
+        </a>
+        <a href="#skills" class="mobile-nav-link" data-section="skills">
+            <img src="Emoticone/Nav/icons8-project-64.png" alt="Compétences" class="nav-icon">
+            <span class="mobile-nav-text nav-text" data-fr="Compétences" data-en="Skills">Compétences</span>
+        </a>
+        <a href="#experience" class="mobile-nav-link" data-section="experience">
+            <img src="Emoticone/Nav/icons8-suitcase-64.png" alt="Expériences" class="nav-icon">
+            <span class="mobile-nav-text nav-text" data-fr="Expériences" data-en="Experience">Expériences</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link" data-section="contact">
+            <img src="Emoticone/Nav/icons8-mail-50.png" alt="Contact" class="nav-icon">
+            <span class="mobile-nav-text nav-text" data-fr="Contact" data-en="Contact">Contact</span>
+        </a>
+        <button class="mobile-lang-toggle" data-lang="fr">FR</button>
+    </nav>
+
+    <!--header-->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="brand-text">Zakariae El Bouzidi</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-section="home">
+                    <img src="Emoticone/Nav/icons8-home-50.png" alt="Accueil" class="nav-icon">
+                    <span class="nav-text" data-fr="Accueil" data-en="Home">Accueil</span>
+                </a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">
+                    <img src="Emoticone/Nav/icons8-folder-50.png" alt="Projets" class="nav-icon">
+                    <span class="nav-text" data-fr="Projets" data-en="Projects">Projets</span>
+                </a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">
+                    <img src="Emoticone/Nav/icons8-project-64.png" alt="Compétences" class="nav-icon">
+                    <span class="nav-text" data-fr="Compétences" data-en="Skills">Compétences</span>
+                </a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">
+                    <img src="Emoticone/Nav/icons8-suitcase-64.png" alt="Expériences" class="nav-icon">
+                    <span class="nav-text" data-fr="Expériences" data-en="Experience">Expériences</span>
+                </a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">
+                    <img src="Emoticone/Nav/icons8-mail-50.png" alt="Contact" class="nav-icon">
+                    <span class="nav-text" data-fr="Contact" data-en="Contact">Contact</span>
+                </a></li>
+            </ul>
+            <div class="nav-lang">
+                <button class="language-toggle" data-lang="fr">FR</button>
+            </div>
+        </nav>
+    </header>
+
+    <!--main content-->
+    <main class="main">
+        <!--home section-->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-fr="Zakariae El Bouzidi" data-en="Zakariae El Bouzidi">Zakariae El Bouzidi</h1>
+                        <p class="hero-subtitle" data-fr="Élève ingénieur logiciel — Systèmes, Backend & Data" data-en="Software Engineer Student — Systems, Backend & Data">Élève ingénieur logiciel — Systèmes, Backend & Data</p>
+                        <p class="hero-description" data-fr="Je conçois et développe des systèmes logiciels fiables, des applications temps réel aux outils de supervision réseau. Mon travail se concentre sur l'ingénierie backend, le traitement de données et la performance système, avec un fort accent sur des solutions concrètes et applicables." data-en="I design and build reliable software systems, from real-time applications to network supervision tools. My work focuses on backend engineering, data processing, and system performance, with a strong emphasis on practical, real-world solutions.">Je conçois et développe des systèmes logiciels fiables, des applications temps réel aux outils de supervision réseau. Mon travail se concentre sur l'ingénierie backend, le traitement de données et la performance système, avec un fort accent sur des solutions concrètes et applicables.</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary" data-fr="Voir mes projets" data-en="View my projects">
+                                <img src="Emoticone/icons8-project-50.png" alt="Projects" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir mes projets" data-en="View my projects">Voir mes projets</span>
+                            </a>
+                            <a href="#contact" class="btn btn-secondary" data-fr="Me contacter" data-en="Contact me">
+                                <img src="Emoticone/icons8-phone-50.png" alt="Contact" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Me contacter" data-en="Contact me">Me contacter</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="profile-photo-container">
+                            <img src="CVPHOTO.jpg" alt="Zakariae El Bouzidi" class="profile-photo">
+                            <div class="matrix-particles">
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                                <div class="matrix-particle"></div>
+                            </div>
+                            <div class="whoami-popup">whoami</div>
+                            <div class="whoami-info" data-fr="Zakariae El Bouzidi&#10;Élève ingénieur logiciel — Systèmes, Backend & Data&#10;Je conçois et développe des systèmes logiciels fiables, des applications temps réel aux outils de supervision réseau. Mon travail se concentre sur l'ingénierie backend, le traitement de données et la performance système, avec un fort accent sur des solutions concrètes et applicables." data-en="Zakariae El Bouzidi&#10;Software Engineer Student — Systems, Backend & Data&#10;I design and build reliable software systems, from real-time applications to network supervision tools. My work focuses on backend engineering, data processing, and system performance, with a strong emphasis on practical, real-world solutions.">Zakariae El Bouzidi
+Élève ingénieur logiciel — Systèmes, Backend & Data
+Je conçois et développe des systèmes logiciels fiables, des applications temps réel aux outils de supervision réseau. Mon travail se concentre sur l'ingénierie backend, le traitement de données et la performance système, avec un fort accent sur des solutions concrètes et applicables.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--projects section-->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">KanBan Project</h3>
+                            <p class="project-description" data-fr="Application Kanban web en Java/Spring MVC (janvier 2026). Architecture Maven multi-modules (3 modules), board avec 5 colonnes par défaut, swimlanes, drag and drop, et suivi du temps (timer + worklogs). Qualité renforcée avec 40+ classes de tests unitaires/intégration et pipeline CI (tests, SpotBugs, JaCoCo). Démo live sur serveur de staging (peut être indisponible selon l'état du serveur)." data-en="Kanban web application in Java/Spring MVC (January 2026). Multi-module Maven architecture (3 modules), board with 5 default columns, swimlanes, drag and drop, and time tracking (timer + worklogs). Quality reinforced with 40+ unit/integration test classes and a CI pipeline (tests, SpotBugs, JaCoCo). Live demo on a staging server (may be unavailable depending on server status).">Application Kanban web en Java/Spring MVC (janvier 2026). Architecture Maven multi-modules (3 modules), board avec 5 colonnes par défaut, swimlanes, drag and drop, et suivi du temps (timer + worklogs). Qualité renforcée avec 40+ classes de tests unitaires/intégration et pipeline CI (tests, SpotBugs, JaCoCo). Démo live sur serveur de staging (peut être indisponible selon l'état du serveur).</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Java 17</span>
+                                <span class="tech-tag">Spring MVC</span>
+                                <span class="tech-tag">Thymeleaf</span>
+                                <span class="tech-tag">Maven</span>
+                                <span class="tech-tag">JUnit</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/KanBan-Project" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                            <a href="https://staging.cluster.ensisa.uha.fr/gl2526-tarnished/" target="_blank" class="btn btn-primary" data-fr="Démo staging" data-en="Staging demo">
+                                <img src="Emoticone/icons8-website-50.png" alt="Demo" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Démo staging" data-en="Staging demo">Démo staging</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">POPPStars Attendance App</h3>
+                            <p class="project-description" data-fr="Application mobile multi-rôle développée avec Flutter pour gérer la présence des étudiants en environnement académique. Implémentation de la création de séances, de l'accès par rôle et du suivi de présence via SFTP et base SQL. Testée avec plus de 20 utilisateurs avec synchronisation en temps réel en moins de 3 secondes." data-en="Multi-role mobile application built with Flutter to manage student attendance in an academic environment. Implemented session creation, role-based access, and presence tracking via SFTP and SQL database. Tested with 20+ users with real-time synchronization under 3 seconds.">Application mobile multi-rôle développée avec Flutter pour gérer la présence des étudiants en environnement académique. Implémentation de la création de séances, de l'accès par rôle et du suivi de présence via SFTP et base SQL. Testée avec plus de 20 utilisateurs avec synchronisation en temps réel en moins de 3 secondes.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Android</span>
+                                <span class="tech-tag">SFTP</span>
+                                <span class="tech-tag">SQL</span>
+                                <span class="tech-tag">Dart</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/POPPStars-Attendance-App" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                            <a href="app-release.apk" download class="btn btn-primary" data-fr="Télécharger APK" data-en="Download APK">
+                                <img src="Emoticone/icons8-phone-50 (1).png" alt="APK" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Télécharger APK" data-en="Download APK">Télécharger APK</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Django Chat App</h3>
+                            <p class="project-description" data-fr="Application de messagerie en temps réel développée avec Django et les technologies Web. Implémentation de salons de discussion, persistance des messages et mises à jour dynamiques. Prend en charge plusieurs utilisateurs simultanés avec une faible latence." data-en="Real-time messaging application built with Django and Web technologies. Implemented chat rooms, message persistence, and dynamic updates. Supports multiple concurrent users with low latency.">Application de messagerie en temps réel développée avec Django et les technologies Web. Implémentation de salons de discussion, persistance des messages et mises à jour dynamiques. Prend en charge plusieurs utilisateurs simultanés avec une faible latence.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Django</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Django-Chat-App" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                            <a href="https://zakbzd.pythonanywhere.com/" target="_blank" class="btn btn-primary" data-fr="Démo Live" data-en="Live Demo">
+                                <img src="Emoticone/icons8-website-50.png" alt="Demo" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Démo Live" data-en="Live Demo">Démo Live</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Broadcast Supervision System</h3>
+                            <p class="project-description" data-fr="Système de supervision de flux vidéo en temps réel avec détection automatique d'incidents. Implémentation de la détection d'écrans noirs, d'images figées et d'anomalies avec OpenCV. Testé sur plusieurs flux vidéo avec une détection fiable." data-en="Real-time video stream monitoring system with automatic incident detection. Implemented detection of black screens, frozen frames, and anomalies using OpenCV. Tested on multiple video streams with reliable detection.">Système de supervision de flux vidéo en temps réel avec détection automatique d'incidents. Implémentation de la détection d'écrans noirs, d'images figées et d'anomalies avec OpenCV. Testé sur plusieurs flux vidéo avec une détection fiable.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PyQt5</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">VLC</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Broadcast-Supervision" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">SNMP Supervision System</h3>
+                            <p class="project-description" data-fr="Système de supervision réseau avec interface web en temps réel. Développement d'une API REST pour collecter et exposer les métriques SNMP des équipements réseau et serveurs. Testé sur un environnement GNS3 avec supervision temps réel de plusieurs ports et métriques système." data-en="Network supervision system with real-time web interface. Built a REST API to collect and expose SNMP metrics from network devices and servers. Tested on a GNS3 environment with real-time monitoring of multiple ports and system metrics.">Système de supervision réseau avec interface web en temps réel. Développement d'une API REST pour collecter et exposer les métriques SNMP des équipements réseau et serveurs. Testé sur un environnement GNS3 avec supervision temps réel de plusieurs ports et métriques système.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">SNMP</span>
+                                <span class="tech-tag">SQLite</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/SNMP-Supervision" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">Quaternion 3D Rotation Study</h3>
+                            <p class="project-description" data-fr="Étude comparative des méthodes de rotation 3D : approches matricielles vs quaternions. Implémentation de simulations en Python pour évaluer les performances et la stabilité numérique." data-en="Comparative study of 3D rotation methods: matrix-based vs quaternion-based approaches. Implemented simulations in Python to evaluate performance and numerical stability.">Étude comparative des méthodes de rotation 3D : approches matricielles vs quaternions. Implémentation de simulations en Python pour évaluer les performances et la stabilité numérique.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">NumPy</span>
+                                <span class="tech-tag">Matplotlib</span>
+                                <span class="tech-tag" data-fr="Mathématiques" data-en="Mathematics">Mathématiques</span>
+                                <span class="tech-tag">3D Graphics</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/ZakBZD100/Quaternion-3d-Rotation" target="_blank" class="btn btn-outline" data-fr="Voir sur GitHub" data-en="View on GitHub">
+                                <img src="Emoticone/icons8-github-50.png" alt="GitHub" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Voir sur GitHub" data-en="View on GitHub">Voir sur GitHub</span>
+                            </a>
+                            <a href="Quaternion_TIPE_2024.pdf" download class="btn btn-primary" data-fr="Télécharger PDF" data-en="Download PDF">
+                                <img src="Emoticone/icons8-pdf-50.png" alt="PDF" style="width: 16px; height: 16px; margin-right: 8px; filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);">
+                                <span data-fr="Télécharger PDF" data-en="Download PDF">Télécharger PDF</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--skills section-->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
+                <div class="skills-grid">
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Stack principal" data-en="Core Stack">Stack principal</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">Django</span>
+                            <span class="skill-item">FastAPI</span>
+                            <span class="skill-item">Flutter</span>
+                            <span class="skill-item">SQL</span>
+                            <span class="skill-item">REST API</span>
+                            <span class="skill-item">WebSocket</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Ingénierie des données" data-en="Data Engineering">Ingénierie des données</h3>
+                        <div class="skills-list">
+                            <span class="skill-item" data-fr="Traitement de données" data-en="Data Processing">Traitement de données</span>
+                            <span class="skill-item" data-fr="Analyse de séries temporelles" data-en="Time Series Analysis">Analyse de séries temporelles</span>
+                            <span class="skill-item">NumPy</span>
+                            <span class="skill-item">SQLite</span>
+                            <span class="skill-item" data-fr="Métriques de supervision" data-en="Monitoring Metrics">Métriques de supervision</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Systèmes & Réseaux" data-en="Systems & Networking">Systèmes & Réseaux</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">SNMP</span>
+                            <span class="skill-item">Linux</span>
+                            <span class="skill-item">GNS3</span>
+                            <span class="skill-item">SFTP</span>
+                            <span class="skill-item" data-fr="Supervision réseau" data-en="Network Supervision">Supervision réseau</span>
+                            <span class="skill-item" data-fr="Supervision temps réel" data-en="Real-Time Monitoring">Supervision temps réel</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="DevOps & Outils" data-en="DevOps & Tools">DevOps & Outils</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Docker</span>
+                            <span class="skill-item">Docker Compose</span>
+                            <span class="skill-item" data-fr="Bases CI/CD" data-en="CI/CD Basics">Bases CI/CD</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category">
+                        <h3 class="category-title" data-fr="Front-end & Mobile" data-en="Frontend & Mobile">Front-end & Mobile</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">TypeScript</span>
+                            <span class="skill-item">HTML/CSS/JavaScript</span>
+                            <span class="skill-item">Android (Flutter)</span>
+                            <span class="skill-item">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--experience section-->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Expériences" data-en="Experience">Expériences</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Janvier 2026" data-en="January 2026">Janvier 2026</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">KanBan Project</h3>
+                            <p class="timeline-description" data-fr="Conception d'une application Kanban web en Java/Spring MVC. Architecture Maven multi-modules (3 modules), workflow avec 5 colonnes par défaut, swimlanes et suivi du temps par story. Livraison avec 40+ classes de tests (unitaires + intégration) et vérification qualité via SpotBugs/JaCoCo." data-en="Built a Kanban web application in Java/Spring MVC. Multi-module Maven architecture (3 modules), workflow with 5 default columns, swimlanes, and per-story time tracking. Delivered with 40+ test classes (unit + integration) and quality checks through SpotBugs/JaCoCo.">Conception d'une application Kanban web en Java/Spring MVC. Architecture Maven multi-modules (3 modules), workflow avec 5 colonnes par défaut, swimlanes et suivi du temps par story. Livraison avec 40+ classes de tests (unitaires + intégration) et vérification qualité via SpotBugs/JaCoCo.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Juillet 2025" data-en="July 2025">Juillet 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title" data-fr="Stage Medi1TV - Média International" data-en="Medi1TV - International Media Internship">Stage Medi1TV - Média International</h3>
+                            <p class="timeline-description" data-fr="Immersion dans un environnement IT. Développement de systèmes de supervision, automatisation, support technique. Réalisation de deux projets majeurs : système de supervision de diffusion (détection automatique d'incidents, surveillance de flux vidéo) et système de supervision réseau SNMP (monitoring d'équipements, métriques serveurs et commutateurs)." data-en="Immersion in IT environment. Development of supervision systems, automation, technical support. Implementation of two major projects: broadcast supervision system (automatic incident detection, video stream monitoring) and SNMP network supervision system (equipment monitoring, server and switch metrics).">Immersion dans un environnement IT. Développement de systèmes de supervision, automatisation, support technique. Réalisation de deux projets majeurs : système de supervision de diffusion (détection automatique d'incidents, surveillance de flux vidéo) et système de supervision réseau SNMP (monitoring d'équipements, métriques serveurs et commutateurs).</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Juin 2025" data-en="June 2025">Juin 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">POPPStars Attendance App</h3>
+                            <p class="timeline-description" data-fr="Application Flutter multi-rôle pour la gestion de présence. Création de séances, pointage via SFTP/SQL." data-en="Multi-role Flutter app for attendance management. Session creation, presence logging via SFTP/SQL.">Application Flutter multi-rôle pour la gestion de présence. Création de séances, pointage via SFTP/SQL.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="Janvier 2025" data-en="January 2025">Janvier 2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Django Chat App</h3>
+                            <p class="timeline-description" data-fr="Backend Django, frontend HTML/CSS/JS. Messagerie en temps réel." data-en="Django backend, HTML/CSS/JS frontend. Real-time messaging.">Backend Django, frontend HTML/CSS/JS. Messagerie en temps réel.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date" data-fr="2023-2024" data-en="2023-2024">2023-2024</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Quaternion 3D Rotation Study</h3>
+                            <p class="timeline-description" data-fr="Projet de simulation comparative sur les rotations 3D matricielles et par quaternions, avec analyse de la stabilité numérique en Python." data-en="Comparative simulation project on matrix and quaternion 3D rotations, with analysis of numerical stability in Python.">Projet de simulation comparative sur les rotations 3D matricielles et par quaternions, avec analyse de la stabilité numérique en Python.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--contact section-->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title" data-fr="Contact" data-en="Contact">Contact</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-gmail-48.png" alt="Email" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="E-mail" data-en="Email">E-mail</h4>
+                                <a href="mailto:zak.elbouzidi@gmail.com">zak.elbouzidi@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-phone-50.png" alt="Phone" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="Téléphone" data-en="Phone">Téléphone</h4>
+                                <a href="tel:+33602492152">+33 6 02 49 21 52</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div class="contact-details">
+                                <h4 data-fr="Localisation" data-en="Location">Localisation</h4>
+                                <span>Brunstatt, France</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-github-50.png" alt="GitHub" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="GitHub" data-en="GitHub">GitHub</h4>
+                                <a href="https://github.com/ZakBZD100" target="_blank">github.com/ZakBZD100</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <img src="Emoticone/icons8-linkedin-50.png" alt="LinkedIn" class="contact-icon">
+                            <div class="contact-details">
+                                <h4 data-fr="LinkedIn" data-en="LinkedIn">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/zakariae-elbouzidi" target="_blank">linkedin.com/in/zakariae-elbouzidi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-fr="Nom" data-en="Name">Nom</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-fr="E-mail" data-en="Email">E-mail</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-fr="Message" data-en="Message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-fr="Envoyer" data-en="Send">
+                                <span data-fr="Envoyer" data-en="Send">Envoyer</span>
+                            </button>
+                        </form>
+                        <!--status notification-->
+                        <div id="formStatus" class="form-status" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Zakariae El Bouzidi. <span data-fr="Tous droits réservés." data-en="All rights reserved.">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
